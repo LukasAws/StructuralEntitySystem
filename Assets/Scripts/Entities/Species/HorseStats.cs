@@ -17,5 +17,5 @@ public class HorseStats : EntityStats
     [Range(1.1f, 2f)]
     public float StaminaBoost = 1.2f;
     [Range(0.5f, 1f)]
-    public float StaminaLossReduction = 0.8f;
+    public float StaminaLossReduction = 0.6f;
 }

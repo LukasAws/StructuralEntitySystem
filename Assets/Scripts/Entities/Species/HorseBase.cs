@@ -5,48 +5,49 @@ using UnityEngine;
 public abstract class HorseBase : EntityBase
 {
     HorseStats HorseStats => GetComponent<HorseStats>();
-    protected override float Run() 
-    {
-        if (m_EntityStats.stamina <= 0f) return Walk();
+    //protected override float Run() 
+    //{
+    //    if (m_EntityStats.stamina <= 0f) return Walk();
 
-        Vector3 movement = transform.forward
-            * m_EntityStats.runSpeed
-            * Time.deltaTime
-            * HorseStats.SpeedBoost;
-        EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
+    //    Vector3 movement = transform.forward
+    //        * m_EntityStats.runSpeed
+    //        * Time.deltaTime
+    //        * HorseStats.SpeedBoost;
+    //    EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
 
-        return movement.magnitude;
-    }
+    //    return movement.magnitude;
+    //}
 
-    protected override float Walk()
-    {
-        Vector3 movement = transform.forward 
-            * m_EntityStats.speed 
-            * Time.deltaTime
-            * HorseStats.SpeedBoost;
-        EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
+    //protected override float Walk()
+    //{
+    //    Vector3 movement = transform.forward 
+    //        * m_EntityStats.speed 
+    //        * Time.deltaTime
+    //        * HorseStats.SpeedBoost;
+    //    EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
 
-        return movement.magnitude;
-    }
+    //    return movement.magnitude;
+    //}
 
-    protected override float LoseStamina(float amount)
-    {
-        if (m_EntityStats.stamina <= 0f) return 0f;
+    //protected override float LoseStamina(float amount)
+    //{
+    //    if (m_EntityStats.stamina <= 0f) return 0f;
 
-        float staminaLoss = amount 
-            * Time.deltaTime 
-            * HorseStats.StaminaLossReduction;
-        m_EntityStats.stamina -= staminaLoss;
+    //    float staminaLoss = amount 
+    //        * Time.deltaTime 
+    //        * HorseStats.StaminaLossReduction;
+    //    m_EntityStats.stamina -= staminaLoss;
 
-        if (m_EntityStats.stamina < 0f) m_EntityStats.stamina = 0f;
+    //    if (m_EntityStats.stamina < 0f) m_EntityStats.stamina = 0f;
 
-        staminaChangedTimestamp = Time.time;
+    //    m_EntityStats.staminaTimestamp = Time.time;
 
-        return staminaLoss;
-    }
+    //    return staminaLoss;
+    //}
 
-    private void OnEnable()
-    {
-        m_EntityStats.stamina *= HorseStats.StaminaBoost;
-    }
+    //private void OnEnable()
+    //{
+    //    m_EntityStats.maxStamina *= HorseStats.StaminaBoost;
+    //    m_EntityStats.stamina = m_EntityStats.maxStamina;
+    //}
 }
