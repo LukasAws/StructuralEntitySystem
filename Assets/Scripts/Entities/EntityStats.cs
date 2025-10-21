@@ -29,6 +29,10 @@ public class EntityStats : MonoBehaviour
     public float armor = 0f; // max 100
     [Range(0f, 5f)]
     public float healthRegen = 2f; // max 5 per second
+    [Range(1f, 20f)]
+    public float healthCooldown = 5f; // seconds to recover after low health
+    [Range(10f, 50f)]
+    public float lowHealthThreshold = 25f; // threshold for low health
 
     [Header("Movement")]
     [Range(0f, 10f)]
@@ -41,6 +45,8 @@ public class EntityStats : MonoBehaviour
     public float maxStamina = 100f; // max stamina
     [Range(0f, 30f)]
     public float staminaRegen = 15f; // max 30 per second
+    [Range(1f, 15f)]
+    public float staminaCooldown = 5f; // seconds to recover after running out of stamina
 
     [Header("Attack")]
     [Min(0f)]
@@ -49,8 +55,10 @@ public class EntityStats : MonoBehaviour
     public float attackRange = 5f; // max 10
     [Min(0f)]
     public float attackCooldown = 0.6f; // seconds between attacks
-    [Range(0f, 75f)]
-    public float pursuitRange = 25f; // max 75
+    [Range(0f, 45f)]
+    public float visibilityDistance = 10f; // max 45
+    [Range(5f, 60f)]
+    public float reactionCooldown = 15f; // seconds to react
 
 
     [Header("Misc")]
@@ -62,13 +70,12 @@ public class EntityStats : MonoBehaviour
     public EntityBase.HostilityLevel hostilityLevel = EntityBase.HostilityLevel.Neutral;
 
     [Header("Intermediate Variables")]
+    public bool isWandering = false;
     public bool isPursuing = false;
+    public bool isBeingAttacked = false;
     public bool isOutOfStamina = false;
     public bool isLowHealth = false;
     public bool isMoving = false;
-    public float reactionCooldown = 15f; // seconds to react
-    public float staminaCooldown = 5f; // seconds to recover after running out of stamina
-    public float healthCooldown = 5f; // seconds to recover after low health
     public float reactionTimestamp = -Mathf.Infinity; // last reaction time
     public float attackTimestamp = -Mathf.Infinity; // last attack time
     public float staminaTimestamp = -Mathf.Infinity; // last stamina change time

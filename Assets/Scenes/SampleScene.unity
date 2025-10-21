@@ -153,8 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f7cf28f91de446a5b957acfe0978f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackHorse
-  statChangeDisplayCooldown: 2
-  target: {fileID: 0}
 --- !u!54 &185515811
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -198,24 +196,27 @@ MonoBehaviour:
   maxHealth: 100
   armor: 20
   healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
   speed: 2
   runSpeed: 4
   stamina: 100
   maxStamina: 120
   staminaRegen: 5
+  staminaCooldown: 5
   attackDamage: 3
   attackRange: 1.64
   attackCooldown: 0.95
-  pursuitRange: 19.4
+  visibilityDistance: 10
+  reactionCooldown: 20
   experience: 0
   hostilityLevel: 2
+  isWandering: 0
   isPursuing: 0
+  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
-  reactionCooldown: 20
-  staminaCooldown: 5
-  healthCooldown: 5
   reactionTimestamp: -Infinity
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
@@ -312,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 185515809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.6, y: 1.12, z: -17.8}
+  m_LocalPosition: {x: -21.9, y: 1.12, z: -6.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -441,6 +442,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -566,6 +568,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc58de45919d79d418f50bbfea51f531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraJumper
+  hostileEntities: []
+  previousHostileCount: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,24 +811,27 @@ MonoBehaviour:
   maxHealth: 100
   armor: 20
   healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
   speed: 2
   runSpeed: 4
   stamina: 100
   maxStamina: 120
   staminaRegen: 5
+  staminaCooldown: 5
   attackDamage: 3
   attackRange: 1.64
   attackCooldown: 0.95
-  pursuitRange: 19.4
+  visibilityDistance: 10
+  reactionCooldown: 20
   experience: 0
   hostilityLevel: 2
+  isWandering: 0
   isPursuing: 0
+  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
-  reactionCooldown: 20
-  staminaCooldown: 5
-  healthCooldown: 5
   reactionTimestamp: -Infinity
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
@@ -927,8 +946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SandZombie
-  statChangeDisplayCooldown: 2
-  target: {fileID: 0}
 --- !u!1 &591831446
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,8 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Male
-  statChangeDisplayCooldown: 2
-  target: {fileID: 0}
 --- !u!54 &591831448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1008,24 +1023,27 @@ MonoBehaviour:
   maxHealth: 100
   armor: 0
   healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
   speed: 3
   runSpeed: 6
   stamina: 100
   maxStamina: 100
   staminaRegen: 15
+  staminaCooldown: 5
   attackDamage: 8
   attackRange: 2.08
   attackCooldown: 0.6
-  pursuitRange: 15.1
+  visibilityDistance: 10
+  reactionCooldown: 20
   experience: 0
   hostilityLevel: 1
+  isWandering: 0
   isPursuing: 0
+  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
-  reactionCooldown: 20
-  staminaCooldown: 5
-  healthCooldown: 5
   reactionTimestamp: -Infinity
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
@@ -1119,7 +1137,7 @@ Transform:
   m_GameObject: {fileID: 591831446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.1, y: 1.12, z: 4.3}
+  m_LocalPosition: {x: -17.7, y: 1.12, z: 5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1320,8 +1338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Male
-  statChangeDisplayCooldown: 2
-  target: {fileID: 0}
 --- !u!54 &1443794049
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1365,24 +1381,27 @@ MonoBehaviour:
   maxHealth: 100
   armor: 0
   healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
   speed: 3
   runSpeed: 6
   stamina: 100
   maxStamina: 100
   staminaRegen: 15
+  staminaCooldown: 5
   attackDamage: 8
   attackRange: 2.08
   attackCooldown: 0.6
-  pursuitRange: 15.1
+  visibilityDistance: 10
+  reactionCooldown: 20
   experience: 0
   hostilityLevel: 1
+  isWandering: 0
   isPursuing: 0
+  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
-  reactionCooldown: 20
-  staminaCooldown: 5
-  healthCooldown: 5
   reactionTimestamp: -Infinity
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
@@ -1587,7 +1606,7 @@ Transform:
   m_GameObject: {fileID: 1700575559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.69341, y: 0, z: 12.900749}
+  m_LocalPosition: {x: -1.8, y: 0, z: 13.2}
   m_LocalScale: {x: 46.86, y: 9.43, z: 1.12}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1627,8 +1646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Male
-  statChangeDisplayCooldown: 2
-  target: {fileID: 0}
 --- !u!54 &1732459575
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1672,24 +1689,27 @@ MonoBehaviour:
   maxHealth: 100
   armor: 0
   healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
   speed: 3
   runSpeed: 6
   stamina: 100
   maxStamina: 100
   staminaRegen: 15
+  staminaCooldown: 5
   attackDamage: 8
   attackRange: 2.08
   attackCooldown: 0.6
-  pursuitRange: 15.1
+  visibilityDistance: 10
+  reactionCooldown: 20
   experience: 0
   hostilityLevel: 0
+  isWandering: 0
   isPursuing: 0
+  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
-  reactionCooldown: 20
-  staminaCooldown: 5
-  healthCooldown: 5
   reactionTimestamp: -Infinity
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
@@ -1783,7 +1803,7 @@ Transform:
   m_GameObject: {fileID: 1732459573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.6, y: 1.12, z: -2}
+  m_LocalPosition: {x: 14.33, y: 1.12, z: 12.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1973,7 +1993,7 @@ Transform:
   m_GameObject: {fileID: 1881217064}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70724285, z: -0, w: 0.7069707}
-  m_LocalPosition: {x: -19.40659, y: 0, z: -7.99925}
+  m_LocalPosition: {x: -24.6, y: 0, z: -9}
   m_LocalScale: {x: 46.86, y: 9.43, z: 1.1199999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2084,7 +2104,7 @@ Transform:
   m_GameObject: {fileID: 1922759131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70724285, z: -0, w: 0.7069707}
-  m_LocalPosition: {x: 19.59341, y: 0, z: -5.59925}
+  m_LocalPosition: {x: 21.2, y: 0, z: -9.5}
   m_LocalScale: {x: 46.86, y: 9.43, z: 1.1199999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2124,8 +2144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85f7cf28f91de446a5b957acfe0978f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackHorse
-  statChangeDisplayCooldown: 2
-  target: {fileID: 0}
 --- !u!54 &2007948297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2169,24 +2187,27 @@ MonoBehaviour:
   maxHealth: 100
   armor: 20
   healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
   speed: 2
   runSpeed: 4
   stamina: 100
   maxStamina: 120
   staminaRegen: 5
+  staminaCooldown: 5
   attackDamage: 3
   attackRange: 1.64
   attackCooldown: 0.95
-  pursuitRange: 19.4
+  visibilityDistance: 10
+  reactionCooldown: 20
   experience: 0
   hostilityLevel: 2
+  isWandering: 0
   isPursuing: 0
+  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
-  reactionCooldown: 20
-  staminaCooldown: 5
-  healthCooldown: 5
   reactionTimestamp: -Infinity
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
@@ -2282,14 +2303,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007948295}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.22996487, z: 0, w: 0.97319895}
   m_LocalPosition: {x: 3.8, y: 1.12, z: 21.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -26.59, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

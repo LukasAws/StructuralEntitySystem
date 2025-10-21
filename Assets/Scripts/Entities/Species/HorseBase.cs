@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class HorseBase : EntityBase
 {
     HorseStats HorseStats => GetComponent<HorseStats>();
-    //protected override float Run() 
+    //protected override float RunToFrom() 
     //{
-    //    if (m_EntityStats.stamina <= 0f) return Walk();
+    //    if (ES.stamina <= 0f) return Wander();
 
     //    Vector3 movement = transform.forward
-    //        * m_EntityStats.runSpeed
+    //        * ES.runSpeed
     //        * Time.deltaTime
     //        * HorseStats.SpeedBoost;
     //    EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
@@ -18,10 +18,10 @@ public abstract class HorseBase : EntityBase
     //    return movement.magnitude;
     //}
 
-    //protected override float Walk()
+    //protected override float Wander()
     //{
     //    Vector3 movement = transform.forward 
-    //        * m_EntityStats.speed 
+    //        * ES.speed 
     //        * Time.deltaTime
     //        * HorseStats.SpeedBoost;
     //    EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
@@ -31,23 +31,23 @@ public abstract class HorseBase : EntityBase
 
     //protected override float LoseStamina(float amount)
     //{
-    //    if (m_EntityStats.stamina <= 0f) return 0f;
+    //    if (ES.stamina <= 0f) return 0f;
 
     //    float staminaLoss = amount 
     //        * Time.deltaTime 
     //        * HorseStats.StaminaLossReduction;
-    //    m_EntityStats.stamina -= staminaLoss;
+    //    ES.stamina -= staminaLoss;
 
-    //    if (m_EntityStats.stamina < 0f) m_EntityStats.stamina = 0f;
+    //    if (ES.stamina < 0f) ES.stamina = 0f;
 
-    //    m_EntityStats.staminaTimestamp = Time.time;
+    //    ES.staminaTimestamp = Time.time;
 
     //    return staminaLoss;
     //}
 
     //private void OnEnable()
     //{
-    //    m_EntityStats.maxStamina *= HorseStats.StaminaBoost;
-    //    m_EntityStats.stamina = m_EntityStats.maxStamina;
+    //    ES.maxStamina *= HorseStats.StaminaBoost;
+    //    ES.stamina = ES.maxStamina;
     //}
 }
