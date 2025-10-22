@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface IEntityHostility<EntityBase>
+namespace Entities.Interfaces
 {
-    public void Attack(EntityBase entity);
+    public interface IEntityHostility<TEntityBase>
+    {
+        
+    }
 }

@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public abstract class ChickenBase : EntityBase
+namespace Entities.Species
 {
-    public float EggLayingInterval = 300f; // Time in seconds between egg laying
-    public float EggLayingAmount = 1f; // Number of eggs laid at a time
-
-    protected virtual void LayEggs() 
+    public abstract class ChickenBase : EntityBase
     {
-        // Logic to instantiate egg objects in the game world
-        Debug.Log($"Chicken laid {EggLayingAmount} eggs!");
+        [FormerlySerializedAs("EggLayingInterval")] public float eggLayingInterval = 300f; // Time in seconds between egg laying
+        [FormerlySerializedAs("EggLayingAmount")] public float eggLayingAmount = 1f; // Number of eggs laid at a time
+
+        protected virtual void LayEggs() 
+        {
+            // Logic to instantiate egg objects in the game world
+            Debug.Log($"Chicken laid {eggLayingAmount} eggs!");
+        }
     }
 }

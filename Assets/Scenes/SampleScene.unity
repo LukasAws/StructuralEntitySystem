@@ -204,11 +204,13 @@ MonoBehaviour:
   maxStamina: 120
   staminaRegen: 5
   staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
   attackDamage: 3
   attackRange: 1.64
   attackCooldown: 0.95
   visibilityDistance: 10
   reactionCooldown: 20
+  lastKilledEntity: {fileID: 0}
   experience: 0
   hostilityLevel: 2
   isWandering: 0
@@ -222,9 +224,11 @@ MonoBehaviour:
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
   knockbackForce: 7
-  SpeedBoost: 1.25
-  StaminaBoost: 1.2
-  StaminaLossReduction: 0.8
+  attackedBy: []
+  entitiesKilled: []
+  speedBoost: 1.25
+  staminaBoost: 1.2
+  staminaLossReduction: 0.8
 --- !u!136 &185515813
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -424,164 +428,12 @@ Transform:
   m_GameObject: {fileID: 279775994}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7386199, y: 0, z: -32.09925}
-  m_LocalScale: {x: 46.86, y: 9.43, z: 1.12}
+  m_LocalPosition: {x: 0, y: 0, z: 75}
+  m_LocalScale: {x: 150, y: 30, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &330585543
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 330585546}
-  - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
-  - component: {fileID: 330585547}
-  - component: {fileID: 330585548}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
---- !u!20 &330585545
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &330585546
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2007948302}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &330585547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
---- !u!114 &330585548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc58de45919d79d418f50bbfea51f531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraJumper
-  hostileEntities: []
-  previousHostileCount: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 471329725}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,11 +671,13 @@ MonoBehaviour:
   maxStamina: 120
   staminaRegen: 5
   staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
   attackDamage: 3
   attackRange: 1.64
   attackCooldown: 0.95
   visibilityDistance: 10
   reactionCooldown: 20
+  lastKilledEntity: {fileID: 0}
   experience: 0
   hostilityLevel: 2
   isWandering: 0
@@ -837,9 +691,11 @@ MonoBehaviour:
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
   knockbackForce: 7
-  SpeedBoost: 1.25
-  StaminaBoost: 1.2
-  StaminaLossReduction: 0.8
+  attackedBy: []
+  entitiesKilled: []
+  speedBoost: 1.25
+  staminaBoost: 1.2
+  staminaLossReduction: 0.8
 --- !u!136 &540586181
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1031,11 +887,13 @@ MonoBehaviour:
   maxStamina: 100
   staminaRegen: 15
   staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
   attackDamage: 8
   attackRange: 2.08
   attackCooldown: 0.6
   visibilityDistance: 10
   reactionCooldown: 20
+  lastKilledEntity: {fileID: 0}
   experience: 0
   hostilityLevel: 1
   isWandering: 0
@@ -1049,6 +907,8 @@ MonoBehaviour:
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
   knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
 --- !u!136 &591831450
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1249,7 +1109,7 @@ Transform:
   m_GameObject: {fileID: 761096734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.99341, y: 0, z: -11.39925}
+  m_LocalPosition: {x: 0.99341, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1389,11 +1249,13 @@ MonoBehaviour:
   maxStamina: 100
   staminaRegen: 15
   staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
   attackDamage: 8
   attackRange: 2.08
   attackCooldown: 0.6
   visibilityDistance: 10
   reactionCooldown: 20
+  lastKilledEntity: {fileID: 0}
   experience: 0
   hostilityLevel: 1
   isWandering: 0
@@ -1407,6 +1269,8 @@ MonoBehaviour:
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
   knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
 --- !u!136 &1443794051
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1606,8 +1470,8 @@ Transform:
   m_GameObject: {fileID: 1700575559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0, z: 13.2}
-  m_LocalScale: {x: 46.86, y: 9.43, z: 1.12}
+  m_LocalPosition: {x: 0, y: 0, z: -75}
+  m_LocalScale: {x: 150, y: 30, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
@@ -1697,11 +1561,13 @@ MonoBehaviour:
   maxStamina: 100
   staminaRegen: 15
   staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
   attackDamage: 8
   attackRange: 2.08
   attackCooldown: 0.6
   visibilityDistance: 10
   reactionCooldown: 20
+  lastKilledEntity: {fileID: 0}
   experience: 0
   hostilityLevel: 0
   isWandering: 0
@@ -1715,6 +1581,8 @@ MonoBehaviour:
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
   knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
 --- !u!136 &1732459577
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1993,8 +1861,8 @@ Transform:
   m_GameObject: {fileID: 1881217064}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70724285, z: -0, w: 0.7069707}
-  m_LocalPosition: {x: -24.6, y: 0, z: -9}
-  m_LocalScale: {x: 46.86, y: 9.43, z: 1.1199999}
+  m_LocalPosition: {x: -75, y: 0, z: 0}
+  m_LocalScale: {x: 150, y: 30, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
@@ -2104,8 +1972,8 @@ Transform:
   m_GameObject: {fileID: 1922759131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70724285, z: -0, w: 0.7069707}
-  m_LocalPosition: {x: 21.2, y: 0, z: -9.5}
-  m_LocalScale: {x: 46.86, y: 9.43, z: 1.1199999}
+  m_LocalPosition: {x: 75, y: 0, z: 0}
+  m_LocalScale: {x: 150, y: 30, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
@@ -2195,11 +2063,13 @@ MonoBehaviour:
   maxStamina: 120
   staminaRegen: 5
   staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
   attackDamage: 3
   attackRange: 1.64
   attackCooldown: 0.95
   visibilityDistance: 10
   reactionCooldown: 20
+  lastKilledEntity: {fileID: 0}
   experience: 0
   hostilityLevel: 2
   isWandering: 0
@@ -2213,9 +2083,11 @@ MonoBehaviour:
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
   knockbackForce: 7
-  SpeedBoost: 1.25
-  StaminaBoost: 1.2
-  StaminaLossReduction: 0.8
+  attackedBy: []
+  entitiesKilled: []
+  speedBoost: 1.25
+  staminaBoost: 1.2
+  staminaLossReduction: 0.8
 --- !u!136 &2007948299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2307,8 +2179,7 @@ Transform:
   m_LocalPosition: {x: 3.8, y: 1.12, z: 21.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 330585546}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -26.59, z: 0}
 --- !u!1660057539 &9223372036854775807

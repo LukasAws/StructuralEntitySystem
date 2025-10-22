@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public abstract class HumanBase : EntityBase
+namespace Entities.Species
 {
+    public abstract class HumanBase : EntityBase
+    {
 
+    }
 }

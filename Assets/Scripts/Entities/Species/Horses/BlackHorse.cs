@@ -1,7 +1,7 @@
-using UnityEngine;
-
-
-public class BlackHorse : HorseBase
+namespace Entities.Species.Horses
 {
+    public class BlackHorse : HorseBase
+    {
 
+    }
 }

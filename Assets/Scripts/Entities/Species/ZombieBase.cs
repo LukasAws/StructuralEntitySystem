@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-public abstract class ZombieBase : EntityBase
+namespace Entities.Species
 {
+    public abstract class ZombieBase : EntityBase
+    {
 
+    }
 }

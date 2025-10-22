@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public sealed class Male : HumanBase
+namespace Entities.Species.Humans
 {
+    public sealed class Male : HumanBase
+    {
 
+    }
 }

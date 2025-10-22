@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class DogBase : MonoBehaviour
+namespace Entities.Species
 {
+    public abstract class DogBase : MonoBehaviour
+    {
 
+    }
 }

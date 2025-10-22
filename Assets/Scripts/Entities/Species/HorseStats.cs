@@ -1,21 +1,25 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-[Serializable]
-public class HorseStats : EntityStats
+namespace Entities.Species
 {
-    //[ContextMenu("Restore Defaults")] //-- doesn't work with override. Why? -- Might be a Unity limitation.
-    public override void RestoreDefaults() // restore to defaults in editor
+    [Serializable]
+    public class HorseStats : EntityStats
     {
-        SpeedBoost = 1.25f;
-        StaminaBoost = 1.2f;
-        StaminaLossReduction = 0.8f;
-    }
+        //[ContextMenu("Restore Defaults")] //-- doesn't work with override. Why? -- Might be a Unity limitation.
+        public override void RestoreDefaults() // restore to defaults in editor
+        {
+            speedBoost = 1.25f;
+            staminaBoost = 1.2f;
+            staminaLossReduction = 0.8f;
+        }
 
-    [Range(1.1f, 2f)]
-    public float SpeedBoost = 1.25f;
-    [Range(1.1f, 2f)]
-    public float StaminaBoost = 1.2f;
-    [Range(0.5f, 1f)]
-    public float StaminaLossReduction = 0.6f;
+        [FormerlySerializedAs("SpeedBoost")] [Range(1.1f, 2f)]
+        public float speedBoost = 1.25f;
+        [FormerlySerializedAs("StaminaBoost")] [Range(1.1f, 2f)]
+        public float staminaBoost = 1.2f;
+        [FormerlySerializedAs("StaminaLossReduction")] [Range(0.5f, 1f)]
+        public float staminaLossReduction = 0.6f;
+    }
 }
