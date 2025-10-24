@@ -26,7 +26,7 @@ namespace Entities
         private EntityStats ES => GetComponent<EntityStats>();
         private Rigidbody EntityRigidbody => GetComponent<Rigidbody>();
 
-        public EntityBase atackTarget;
+        public EntityBase attackTargetPublic;
         
         public enum HostilityLevel : short
         {
@@ -34,15 +34,6 @@ namespace Entities
             Neutral = 1,  // will attack if attacked
             Hostile = 2,   // will always attack on sight
         }
-
-        //public enum EntityType // not needed yet
-        //{
-        //    Human,
-        //    Dog,
-        //    Horse,
-        //    Zombie,
-        //    Chicken,
-        //}
 
         // TODO: Let user choose the value in settings later -- may have to be static
         // This should be moved to the UI Manager or something
@@ -94,11 +85,11 @@ namespace Entities
         [Header("Gizmos")]
         private Vector3 _gWanderEndPoint;
         private Vector3 _gEscapeDirection;
-        private bool _inReaction;
+
+        private bool canWander = false;
 
         private void OnDrawGizmos()
         {
-            
             if (ES.hostilityLevel == HostilityLevel.Hostile)
             {
                 Gizmos.color = ES.isPursuing ? Color.red : Color.white;
@@ -112,13 +103,13 @@ namespace Entities
                 Gizmos.DrawLine(transform.position, _attackTarget.transform.position);
             }
 
-            if (ES.isWandering && _gWanderEndPoint != Vector3.zero)
+            if (ES.isWandering && _gWanderEndPoint != Vector3.zero && !ES.isPursuing)
             {
                 Gizmos.color = Color.green;
                 Gizmos.DrawLine(transform.position, _gWanderEndPoint);
             }
 
-            if (ES.isBeingAttacked)
+            if (ES.isBeingAttacked && !ES.isPursuing)
             {
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawLine(transform.position, transform.position + _gEscapeDirection * 5f);
@@ -127,14 +118,18 @@ namespace Entities
 
         private void FixedUpdate() // the hierarchy of actions matters here
         {
-            atackTarget = _attackTarget;
-            
-            _inReaction = IsInCooldown(ES.reactionTimestamp, ES.reactionCooldown);
-            
-            if(!ES.isWandering && !ES.isPursuing && !ES.isBeingAttacked)
-                StartCoroutine(Wander());
+            if(transform.position.y <= -20)
+            {
+                Die();
+            }
 
-            if(ES.isWandering && ES.hostilityLevel == HostilityLevel.Hostile)
+            attackTargetPublic = _attackTarget;
+
+            canWander = !ES.isWandering && !ES.isPursuing && !ES.isBeingAttacked;
+            
+            if(canWander) StartCoroutine(Wander());
+
+            if(ES.hostilityLevel == HostilityLevel.Hostile)
             {
                 GetEntitiesByProximity(ES.visibilityDistance, out List<EntityBase> entities, true);
                 bool hasFound = FindEntityToAttack(
@@ -145,7 +140,6 @@ namespace Entities
                 if (hasFound)
                 {
                     _onPursuitStart?.Invoke(_attackTarget);
-                    //Debug.Log($"{gameObject.name} is pursuing {_attackTarget}");
                 }
             }
 
@@ -164,7 +158,7 @@ namespace Entities
         protected virtual IEnumerator Wander() // TODO: Improve wandering behavior -- right now it doesn't consider obstacles -- think about implementing AI Nav
         {
             ES.isWandering = true;
-            //Debug.Log($"{gameObject.name} is now wandering");
+            _attackTarget = null;
             ES.isMoving = true;
 
             while (ES.isWandering)
@@ -181,6 +175,7 @@ namespace Entities
                 {
                     transform.LookAt(transform.position + randomDirection);
                     Vector3 movement = transform.forward * (ES.speed * Time.deltaTime);
+                    if(EntityRigidbody)
                     EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
                     yield return null;
                 }
@@ -192,7 +187,6 @@ namespace Entities
                     yield return null; 
                 }
             }
-            ES.isMoving = false;
             ES.isWandering = false;
         }
 
@@ -200,7 +194,6 @@ namespace Entities
         {
             if (!_attackTarget)
             {
-                //Debug.LogWarning($"{gameObject.name} cannot pursue the target -- Something went wrong");
                 _onPursuitEnd?.Invoke(_attackTarget);
                 yield break;
             }

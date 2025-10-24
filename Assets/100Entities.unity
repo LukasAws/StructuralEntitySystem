@@ -119,6 +119,410 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4519260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4519261}
+  - component: {fileID: 4519267}
+  - component: {fileID: 4519266}
+  - component: {fileID: 4519265}
+  - component: {fileID: 4519264}
+  - component: {fileID: 4519263}
+  - component: {fileID: 4519262}
+  m_Layer: 0
+  m_Name: Hostile (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4519261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -47, y: 0.984, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4519262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &4519263
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &4519264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &4519265
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &4519266
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &4519267
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519260}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &79614476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79614477}
+  - component: {fileID: 79614483}
+  - component: {fileID: 79614482}
+  - component: {fileID: 79614481}
+  - component: {fileID: 79614480}
+  - component: {fileID: 79614479}
+  - component: {fileID: 79614478}
+  m_Layer: 0
+  m_Name: Hostile (09)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79614477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9903394, z: -0, w: -0.13866508}
+  m_LocalPosition: {x: 26.906338, y: 0.984, z: -28.193195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 195.941, z: 0}
+--- !u!114 &79614478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &79614479
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &79614480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &79614481
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &79614482
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &79614483
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79614476}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &233307195
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +553,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 317509061}
+  - {fileID: 436559158}
+  - {fileID: 372146708}
+  - {fileID: 2124031832}
+  - {fileID: 4519261}
+  - {fileID: 825729546}
+  - {fileID: 934014706}
+  - {fileID: 1173846770}
   - {fileID: 1290325819}
+  - {fileID: 1507656689}
+  - {fileID: 1138276446}
+  - {fileID: 79614477}
+  - {fileID: 831894655}
+  - {fileID: 2046590075}
+  - {fileID: 238629662}
+  - {fileID: 1307516463}
   - {fileID: 1998972545}
   - {fileID: 1144881749}
   - {fileID: 728379324}
@@ -165,6 +583,208 @@ Transform:
   - {fileID: 693538354}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &238629661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238629662}
+  - component: {fileID: 238629668}
+  - component: {fileID: 238629667}
+  - component: {fileID: 238629666}
+  - component: {fileID: 238629665}
+  - component: {fileID: 238629664}
+  - component: {fileID: 238629663}
+  m_Layer: 0
+  m_Name: Hostile (05)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238629662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9903394, z: -0, w: -0.13866508}
+  m_LocalPosition: {x: 26.72664, y: 0.984, z: -15.7986965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 195.941, z: 0}
+--- !u!114 &238629663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &238629664
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &238629665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &238629666
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &238629667
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &238629668
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238629661}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &279775994
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,12 +891,17 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 75}
-  m_LocalScale: {x: 150, y: 30, z: 4}
+  m_LocalScale: {x: 164.61, y: 30, z: 14.34}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &317509060
+--- !u!4 &317509061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+  m_PrefabInstance: {fileID: 4973248400113023834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &372146707
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,55 +909,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 317509061}
-  - component: {fileID: 317509067}
-  - component: {fileID: 317509066}
-  - component: {fileID: 317509065}
-  - component: {fileID: 317509064}
-  - component: {fileID: 317509063}
-  - component: {fileID: 317509062}
+  - component: {fileID: 372146708}
+  - component: {fileID: 372146714}
+  - component: {fileID: 372146713}
+  - component: {fileID: 372146712}
+  - component: {fileID: 372146711}
+  - component: {fileID: 372146710}
+  - component: {fileID: 372146709}
   m_Layer: 0
-  m_Name: Hostile
+  m_Name: Hostile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &317509061
+--- !u!4 &372146708
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2, y: 0.984, z: -26.3}
+  m_LocalRotation: {x: -0, y: 0.24553056, z: -0, w: 0.9693889}
+  m_LocalPosition: {x: -28, y: 0.984, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 233307196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &317509062
+  m_LocalEulerAnglesHint: {x: 0, y: 28.426, z: 0}
+--- !u!114 &372146709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
-  atackTarget: {fileID: 0}
---- !u!54 &317509063
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &372146710
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -353,13 +978,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &317509064
+--- !u!114 &372146711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
@@ -367,7 +992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
   health: 100
   maxHealth: 100
-  armor: 22.3
+  armor: 30.2
   healthRegen: 2
   healthCooldown: 5
   lowHealthThreshold: 25
@@ -378,7 +1003,7 @@ MonoBehaviour:
   staminaRegen: 15
   staminaCooldown: 5
   outOfStaminaUpperThreshold: 50
-  attackDamage: 6
+  attackDamage: 1.95
   attackRange: 1
   attackCooldown: 0.6
   visibilityDistance: 15
@@ -399,13 +1024,13 @@ MonoBehaviour:
   knockbackForce: 7
   attackedBy: []
   entitiesKilled: []
---- !u!136 &317509065
+--- !u!136 &372146712
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -422,13 +1047,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &317509066
+--- !u!23 &372146713
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -470,13 +1095,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &317509067
+--- !u!33 &372146714
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317509060}
+  m_GameObject: {fileID: 372146707}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &410087039
 GameObject:
@@ -605,6 +1230,208 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &436559157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436559158}
+  - component: {fileID: 436559164}
+  - component: {fileID: 436559163}
+  - component: {fileID: 436559162}
+  - component: {fileID: 436559161}
+  - component: {fileID: 436559160}
+  - component: {fileID: 436559159}
+  m_Layer: 0
+  m_Name: Hostile (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436559158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22, y: 0.984, z: 18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436559159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &436559160
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &436559161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &436559162
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &436559163
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &436559164
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436559157}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &471329724
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &608515470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -751,7 +1578,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -893,7 +1720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &693538356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -953,7 +1780,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -1095,7 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &728379326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1155,7 +1982,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -1409,7 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &794037897
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1469,7 +2296,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -1562,6 +2389,410 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794037894}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &825729545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825729546}
+  - component: {fileID: 825729552}
+  - component: {fileID: 825729551}
+  - component: {fileID: 825729550}
+  - component: {fileID: 825729549}
+  - component: {fileID: 825729548}
+  - component: {fileID: 825729547}
+  m_Layer: 0
+  m_Name: Hostile (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &825729546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -56, y: 0.984, z: 45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &825729547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &825729548
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &825729549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &825729550
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &825729551
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &825729552
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825729545}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &831894654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831894655}
+  - component: {fileID: 831894661}
+  - component: {fileID: 831894660}
+  - component: {fileID: 831894659}
+  - component: {fileID: 831894658}
+  - component: {fileID: 831894657}
+  - component: {fileID: 831894656}
+  m_Layer: 0
+  m_Name: Hostile (02)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &831894655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9940705, z: -0, w: 0.10873812}
+  m_LocalPosition: {x: 2.5, y: 0.984, z: 32.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 167.515, z: 0}
+--- !u!114 &831894656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &831894657
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &831894658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &831894659
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &831894660
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &831894661
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831894654}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +2837,258 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.9, y: 0, z: -11.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &934014705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 934014706}
+  - component: {fileID: 934014712}
+  - component: {fileID: 934014711}
+  - component: {fileID: 934014710}
+  - component: {fileID: 934014709}
+  - component: {fileID: 934014708}
+  - component: {fileID: 934014707}
+  m_Layer: 0
+  m_Name: Hostile (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &934014706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.24553056, z: -0, w: 0.9693889}
+  m_LocalPosition: {x: -25.040396, y: 0.984, z: -7.4493904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 28.426, z: 0}
+--- !u!114 &934014707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &934014708
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &934014709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &934014710
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &934014711
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &934014712
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934014705}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1040409235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040409237}
+  - component: {fileID: 1040409236}
+  m_Layer: 0
+  m_Name: InputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1040409236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040409235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea641a9109e08a04c86a73fdb5d0d350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputController
+  topDownCamera: {fileID: 1249333957}
+  thirdPersonCamera: {fileID: 1670169705}
+  friendlyEntity: {fileID: 7863223507183373345, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+  neutralEntity: {fileID: 7586311242742851057, guid: beaac7041716531468feabe98192b6c7, type: 3}
+  hostileEnemy: {fileID: 6096623644121857364, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+  preview: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+--- !u!4 &1040409237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040409235}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.10791, y: 0, z: -1.68929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1660,7 +3143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1111364171
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1720,7 +3203,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -1813,7 +3296,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111364168}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1118877905
+--- !u!4 &1118877906 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+  m_PrefabInstance: {fileID: 1897929893737846056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1138276445
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1821,55 +3309,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1118877906}
-  - component: {fileID: 1118877912}
-  - component: {fileID: 1118877911}
-  - component: {fileID: 1118877910}
-  - component: {fileID: 1118877909}
-  - component: {fileID: 1118877908}
-  - component: {fileID: 1118877907}
+  - component: {fileID: 1138276446}
+  - component: {fileID: 1138276452}
+  - component: {fileID: 1138276451}
+  - component: {fileID: 1138276450}
+  - component: {fileID: 1138276449}
+  - component: {fileID: 1138276448}
+  - component: {fileID: 1138276447}
   m_Layer: 0
-  m_Name: Friendly (5)
+  m_Name: Hostile (04)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1118877906
+--- !u!4 &1138276446
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9334107, z: -0, w: 0.35880986}
-  m_LocalPosition: {x: 21.709976, y: 0.984, z: -30.92573}
+  m_LocalRotation: {x: -0, y: 0.9903394, z: -0, w: -0.13866508}
+  m_LocalPosition: {x: 29, y: 0.984, z: -55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 233307196}
-  m_LocalEulerAnglesHint: {x: 0, y: -137.946, z: 0}
---- !u!114 &1118877907
+  m_LocalEulerAnglesHint: {x: 0, y: 195.941, z: 0}
+--- !u!114 &1138276447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
---- !u!54 &1118877908
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &1138276448
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -1890,13 +3378,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1118877909
+--- !u!114 &1138276449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
@@ -1904,25 +3392,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
   health: 100
   maxHealth: 100
-  armor: 15
+  armor: 30.2
   healthRegen: 2
   healthCooldown: 5
   lowHealthThreshold: 25
-  speed: 5
-  runSpeed: 12
+  speed: 3
+  runSpeed: 6
   stamina: 100
   maxStamina: 100
   staminaRegen: 15
   staminaCooldown: 5
   outOfStaminaUpperThreshold: 50
-  attackDamage: 5
+  attackDamage: 1.95
   attackRange: 1
   attackCooldown: 0.6
-  visibilityDistance: 10
+  visibilityDistance: 15
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 2
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -1936,13 +3424,13 @@ MonoBehaviour:
   knockbackForce: 7
   attackedBy: []
   entitiesKilled: []
---- !u!136 &1118877910
+--- !u!136 &1138276450
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1959,13 +3447,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1118877911
+--- !u!23 &1138276451
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1984,7 +3472,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bbf7e2473219baf48b503b480bd32799, type: 2}
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2007,13 +3495,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1118877912
+--- !u!33 &1138276452
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118877905}
+  m_GameObject: {fileID: 1138276445}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1144881748
 GameObject:
@@ -2064,7 +3552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1144881751
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2217,6 +3705,208 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144881748}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1173846769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173846770}
+  - component: {fileID: 1173846776}
+  - component: {fileID: 1173846775}
+  - component: {fileID: 1173846774}
+  - component: {fileID: 1173846773}
+  - component: {fileID: 1173846772}
+  - component: {fileID: 1173846771}
+  m_Layer: 0
+  m_Name: Hostile (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173846770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.24553056, z: -0, w: 0.9693889}
+  m_LocalPosition: {x: -42.840393, y: 0.984, z: 36.85061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 28.426, z: 0}
+--- !u!114 &1173846771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &1173846772
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &1173846773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &1173846774
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1173846775
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1173846776
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173846769}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1240018146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,7 +3956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1240018149
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2326,7 +4016,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -2432,7 +4122,7 @@ GameObject:
   - component: {fileID: 1249333956}
   - component: {fileID: 1249333955}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: TopDownCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2605,7 +4295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1290325821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2647,7 +4337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
   health: 100
   maxHealth: 100
-  armor: 22.3
+  armor: 30.2
   healthRegen: 2
   healthCooldown: 5
   lowHealthThreshold: 25
@@ -2658,7 +4348,7 @@ MonoBehaviour:
   staminaRegen: 15
   staminaCooldown: 5
   outOfStaminaUpperThreshold: 50
-  attackDamage: 6
+  attackDamage: 1.95
   attackRange: 1
   attackCooldown: 0.6
   visibilityDistance: 15
@@ -2758,6 +4448,208 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290325818}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1307516462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1307516463}
+  - component: {fileID: 1307516469}
+  - component: {fileID: 1307516468}
+  - component: {fileID: 1307516467}
+  - component: {fileID: 1307516466}
+  - component: {fileID: 1307516465}
+  - component: {fileID: 1307516464}
+  m_Layer: 0
+  m_Name: Hostile (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1307516463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9903394, z: -0, w: -0.13866508}
+  m_LocalPosition: {x: 8.926641, y: 0.984, z: 28.501303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 195.941, z: 0}
+--- !u!114 &1307516464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &1307516465
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &1307516466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &1307516467
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1307516468
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1307516469
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307516462}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1374325539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,7 +4699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1374325542
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2867,7 +4759,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -2960,6 +4852,208 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374325539}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1507656688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507656689}
+  - component: {fileID: 1507656695}
+  - component: {fileID: 1507656694}
+  - component: {fileID: 1507656693}
+  - component: {fileID: 1507656692}
+  - component: {fileID: 1507656691}
+  - component: {fileID: 1507656690}
+  m_Layer: 0
+  m_Name: Hostile (08)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1507656689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9940705, z: -0, w: 0.10873812}
+  m_LocalPosition: {x: 27.5, y: 0.984, z: 35.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 167.515, z: 0}
+--- !u!114 &1507656690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &1507656691
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &1507656692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &1507656693
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1507656694
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1507656695
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507656688}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1594108063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,7 +5103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1594108066
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3069,7 +5163,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -3211,7 +5305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1668579079
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3271,7 +5365,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -3364,6 +5458,143 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668579076}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1670169702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1670169706}
+  - component: {fileID: 1670169705}
+  - component: {fileID: 1670169704}
+  - component: {fileID: 1670169703}
+  m_Layer: 0
+  m_Name: ThirdPersonCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1670169703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670169702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
+--- !u!81 &1670169704
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670169702}
+  m_Enabled: 1
+--- !u!20 &1670169705
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670169702}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 75
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1670169706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670169702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.004363274, y: 0, z: 0, w: 0.9999905}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0.5, y: 0, z: 0}
 --- !u!1 &1700575559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3470,7 +5701,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -75}
-  m_LocalScale: {x: 150, y: 30, z: 4}
+  m_LocalScale: {x: 164.61, y: 30, z: 14.34}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
@@ -3603,7 +5834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
+  attackTargetPublic: {fileID: 0}
 --- !u!54 &1831868201
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3663,7 +5894,7 @@ MonoBehaviour:
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 0
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -3862,7 +6093,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70724285, z: -0, w: 0.7069707}
   m_LocalPosition: {x: -75, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 30, z: 4}
+  m_LocalScale: {x: 164.61, y: 30, z: 14.34}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
@@ -3973,12 +6204,17 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70724285, z: -0, w: 0.7069707}
   m_LocalPosition: {x: 75, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 30, z: 4}
+  m_LocalScale: {x: 164.61, y: 30, z: 14.34}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 471329725}
   m_LocalEulerAnglesHint: {x: 0, y: -90.022, z: 0}
---- !u!1 &1998972544
+--- !u!4 &1998972545 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+  m_PrefabInstance: {fileID: 5995447876697315438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2046590074
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3986,55 +6222,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1998972545}
-  - component: {fileID: 1998972551}
-  - component: {fileID: 1998972550}
-  - component: {fileID: 1998972549}
-  - component: {fileID: 1998972548}
-  - component: {fileID: 1998972547}
-  - component: {fileID: 1998972546}
+  - component: {fileID: 2046590075}
+  - component: {fileID: 2046590081}
+  - component: {fileID: 2046590080}
+  - component: {fileID: 2046590079}
+  - component: {fileID: 2046590078}
+  - component: {fileID: 2046590077}
+  - component: {fileID: 2046590076}
   m_Layer: 0
-  m_Name: Neutral
+  m_Name: Hostile (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1998972545
+--- !u!4 &2046590075
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.3, y: 0.984, z: -28.1}
+  m_LocalRotation: {x: -0, y: 0.9940705, z: -0, w: 0.10873812}
+  m_LocalPosition: {x: -19, y: 0.984, z: 54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 233307196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1998972546
+  m_LocalEulerAnglesHint: {x: 0, y: 167.515, z: 0}
+--- !u!114 &2046590076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
-  atackTarget: {fileID: 0}
---- !u!54 &1998972547
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &2046590077
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -4055,13 +6291,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1998972548
+--- !u!114 &2046590078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
@@ -4069,25 +6305,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
   health: 100
   maxHealth: 100
-  armor: 15
+  armor: 30.2
   healthRegen: 2
   healthCooldown: 5
   lowHealthThreshold: 25
-  speed: 3.5
-  runSpeed: 8
+  speed: 3
+  runSpeed: 6
   stamina: 100
   maxStamina: 100
   staminaRegen: 15
   staminaCooldown: 5
   outOfStaminaUpperThreshold: 50
-  attackDamage: 4
+  attackDamage: 1.95
   attackRange: 1
   attackCooldown: 0.6
-  visibilityDistance: 10
+  visibilityDistance: 15
   reactionCooldown: 15
   lastKilledEntity: {fileID: 0}
   experience: 2
-  hostilityLevel: 1
+  hostilityLevel: 2
   isWandering: 0
   isPursuing: 0
   isBeingAttacked: 0
@@ -4101,13 +6337,13 @@ MonoBehaviour:
   knockbackForce: 7
   attackedBy: []
   entitiesKilled: []
---- !u!136 &1998972549
+--- !u!136 &2046590079
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4124,13 +6360,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1998972550
+--- !u!23 &2046590080
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -4149,7 +6385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bbf7e2473219baf48b503b480bd32799, type: 2}
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4172,20 +6408,395 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1998972551
+--- !u!33 &2046590081
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998972544}
+  m_GameObject: {fileID: 2046590074}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2124031831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124031832}
+  - component: {fileID: 2124031838}
+  - component: {fileID: 2124031837}
+  - component: {fileID: 2124031836}
+  - component: {fileID: 2124031835}
+  - component: {fileID: 2124031834}
+  - component: {fileID: 2124031833}
+  m_Layer: 0
+  m_Name: Hostile (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2124031832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.24553056, z: -0, w: 0.9693889}
+  m_LocalPosition: {x: -24.860859, y: 0.984, z: -19.843876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 233307196}
+  m_LocalEulerAnglesHint: {x: 0, y: 28.426, z: 0}
+--- !u!114 &2124031833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f464e6041030f49a7ce6dc11c5cba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
+  attackTargetPublic: {fileID: 0}
+--- !u!54 &2124031834
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &2124031835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc706c0bbb648654eb0514a43ffb19f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.EntityStats
+  health: 100
+  maxHealth: 100
+  armor: 30.2
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 1.95
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 15
+  reactionCooldown: 15
+  lastKilledEntity: {fileID: 0}
+  experience: 2
+  hostilityLevel: 2
+  isWandering: 0
+  isPursuing: 0
+  isBeingAttacked: 0
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  reactionTimestamp: -Infinity
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  entitiesKilled: []
+--- !u!136 &2124031836
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2124031837
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 41b698429289d7340878c2d9db4bee08, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2124031838
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124031831}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1897929893737846056
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 233307196}
+    m_Modifications:
+    - target: {fileID: 1344483533066497519, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_Name
+      value: Friendly
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.709976
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30.92573
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.35880986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9334107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -137.946
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645793359098548307, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f800a260512f9b4e808284406b16691, type: 3}
+--- !u!1001 &4973248400113023834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 233307196}
+    m_Modifications:
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.984
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687449104118909546, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+      propertyPath: m_Name
+      value: Hostile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
+--- !u!1001 &5995447876697315438
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 233307196}
+    m_Modifications:
+    - target: {fileID: 1697155307788076474, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_Name
+      value: Neutral
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -28.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812090973053804960, guid: beaac7041716531468feabe98192b6c7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: beaac7041716531468feabe98192b6c7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1249333958}
+  - {fileID: 1670169706}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 471329725}
   - {fileID: 233307196}
+  - {fileID: 1040409237}
