@@ -1,3 +1,4 @@
+using System;
 using Entities;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
 {
+    public static InputController Instance { get; private set; }
+    
     SimInput inputActions;
 
     [SerializeField]
@@ -36,6 +39,7 @@ public class InputController : MonoBehaviour
 
     private void OnEnable()
     {
+        Instance = this;
         inputActions.TopDownCamera.Enable();
     }
 
@@ -76,10 +80,20 @@ public class InputController : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        GUIStyle style = new GUIStyle()
+        {
+            fontSize = 20,
+            alignment = TextAnchor.MiddleCenter,
+            normal = {textColor = Color.white}
+        };
+        if(thirdPersonCamera.isActiveAndEnabled)
+            GUILayout.Label($"Entity Health: {thirdPersonCamera.transform.parent.GetComponent<EntityStats>().health}", style);
+    }
+
     private void Awake()
     {
-
-
         inputActions = new SimInput();
 
 
@@ -232,5 +246,10 @@ public class InputController : MonoBehaviour
         }
     }
 
-
+    public Transform GetNextEntity()
+    { 
+        return entitiesParent.GetChild((int)++entityIndex);
+    }
+    
+    
 }

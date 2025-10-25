@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6096623644121857364}
   m_Layer: 0
   m_Name: Hostile
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,9 +149,6 @@ MonoBehaviour:
   lastKilledEntity: {fileID: 0}
   experience: 2
   hostilityLevel: 2
-  isWandering: 0
-  isPursuing: 0
-  isBeingAttacked: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0

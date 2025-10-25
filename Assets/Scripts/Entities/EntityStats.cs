@@ -60,28 +60,23 @@ namespace Entities
         public float attackCooldown = 0.6f; // seconds between attacks
         [Range(0f, 45f)]
         public float visibilityDistance = 10f; // max 45
-        [Range(5f, 60f)]
-        public float reactionCooldown = 15f; // seconds to react
 
 
         [Header("Misc")]
         public Guid EntityID { get; private set; } = Guid.NewGuid();
 
-        public EntityBase lastKilledEntity;
+        public ushort entitiesKilledCount = 0;
 
         [Min(0f)]
-        public float experience = 0f; // no max
+        public float experience = 3f; // no max
 
         public EntityBase.HostilityLevel hostilityLevel = EntityBase.HostilityLevel.Neutral;
 
         [Header("Intermediate Variables")]
-        public bool isWandering = false;
-        public bool isPursuing = false;
-        public bool isBeingAttacked = false;
         public bool isOutOfStamina = false;
         public bool isLowHealth = false;
         public bool isMoving = false;
-        public float reactionTimestamp = -Mathf.Infinity; // last reaction time
+        public float obstacleDetectionDistance = 2f;
         public float attackTimestamp = -Mathf.Infinity; // last attack time
         public float staminaTimestamp = -Mathf.Infinity; // last stamina change time
         public float healthTimestamp = -Mathf.Infinity; // last health change time
@@ -89,6 +84,5 @@ namespace Entities
         public float knockbackForce = 7f; // force applied when knocked back -- temporary -- will be handled by weapons later
         
         public List<EntityBase> attackedBy = new List<EntityBase>();
-        public List<EntityBase> entitiesKilled = new List<EntityBase>();
     }
 }
