@@ -68,6 +68,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CancelInstaniation",
+                    "type": "Button",
+                    "id": "afb780d2-b251-420c-95dd-68945e269767",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -180,6 +189,17 @@
                     "action": "ToggleSimulation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb0731b3-9168-4e95-9678-deb98267446c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelInstaniation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -197,9 +217,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchEntity",
+                    "name": "SwitchEntityInc",
                     "type": "Button",
                     "id": "8a4cc7e8-cd00-401a-9cf4-bd52a4b64454",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchEntityDec",
+                    "type": "Button",
+                    "id": "66053a73-3668-46e5-8ab8-6d98ebee5743",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -234,7 +263,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchEntity",
+                    "action": "SwitchEntityInc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62abb253-3455-497f-8aaf-872cefcec711",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchEntityDec",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -1,4 +1,5 @@
 using Entities;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,11 +22,27 @@ public class InputController : MonoBehaviour
     private EntityBase hostileEnemy;
 
     [SerializeField]
-    private GameObject preview;
+    private Transform entitiesParent;
+
+    [SerializeField]
+    private GameObject previewGO;
 
     private GameObject previewObject;
 
     private bool previewing = false;
+    private bool previewingCancelled = false;
+
+    private static uint entityIndex = 0;
+
+    private void OnEnable()
+    {
+        inputActions.TopDownCamera.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Disable();
+    }
 
     private void Update()
     {
@@ -33,7 +50,7 @@ public class InputController : MonoBehaviour
         {
             if (previewObject == null)
             {
-                previewObject = Instantiate(preview, null, true);
+                previewObject = Instantiate(previewGO, null, true);
                 var renderer = previewObject.GetComponent<MeshRenderer>();
 
                 switch (hostilityLevel)
@@ -59,12 +76,12 @@ public class InputController : MonoBehaviour
         }
     }
 
-
     private void Awake()
     {
+
+
         inputActions = new SimInput();
 
-        inputActions.TopDownCamera.Enable();
 
         inputActions.TopDownCamera.SwitchCamera.performed += SwitchCamera;
         inputActions.TopDownCamera.ToFriendly.performed += SwitchToFriendly;
@@ -73,16 +90,59 @@ public class InputController : MonoBehaviour
         inputActions.TopDownCamera.ToggleSimulation.performed += ToggleSimulation;
         inputActions.TopDownCamera.Instantiate.performed += InstantiateEntity;
         inputActions.TopDownCamera.Instantiate.canceled += InstantiateEntity;
+        inputActions.TopDownCamera.CancelInstaniation.performed += CancelInstantiation;
         inputActions.TopDownCamera.MousePos.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
 
         inputActions.ThirdPerson.SwitchCamera.performed += SwitchCamera;
         inputActions.ThirdPerson.ToggleSimulation.performed += ToggleSimulation;
-        inputActions.ThirdPerson.SwitchEntity.performed += SwitchEntity;
+        inputActions.ThirdPerson.SwitchEntityInc.performed += SwitchEntity_Increment;
+        inputActions.ThirdPerson.SwitchEntityDec.performed += SwitchEntity_Decrement;
     }
 
-    private void SwitchEntity(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void CancelInstantiation(InputAction.CallbackContext obj)
     {
-        throw new System.NotImplementedException();
+        if (previewing)
+        {
+            previewing = false;
+            if (previewObject != null)
+            {
+                Destroy(previewObject);
+                previewObject = null;
+            }
+
+            previewingCancelled = true;
+        }
+    }
+
+    private void SwitchEntity_Increment(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        ++entityIndex;
+        SwitchEntity();
+    }
+    private void SwitchEntity_Decrement(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        --entityIndex;
+        SwitchEntity();
+    }
+
+    private void SwitchEntity()
+    {
+        uint entityCount = (uint)entitiesParent.childCount;
+
+        if (entityCount == 0)
+            return;
+
+        entityIndex %= entityCount;
+        if (entityIndex < 0)
+            entityIndex += entityCount;
+
+        Transform child = entitiesParent.GetChild((int)entityIndex);
+        if (child != null)
+        {
+            thirdPersonCamera.transform.parent = child;
+            thirdPersonCamera.transform.localPosition = new Vector3(0, 2, -4);
+            thirdPersonCamera.transform.localRotation = Quaternion.identity;
+        }
     }
 
     private void InstantiateEntity(InputAction.CallbackContext obj)
@@ -91,7 +151,7 @@ public class InputController : MonoBehaviour
         {
             previewing = true;
         }
-        else if (obj.phase == InputActionPhase.Canceled)
+        else if (obj.phase == InputActionPhase.Canceled && !previewingCancelled)
         {
             previewing = false;
 
@@ -103,9 +163,9 @@ public class InputController : MonoBehaviour
 
             EntityBase Entity = hostilityLevel switch
             {
-                EntityBase.HostilityLevel.Friendly => Instantiate(friendlyEntity, null, true),
-                EntityBase.HostilityLevel.Neutral => Instantiate(neutralEntity, null, true),
-                EntityBase.HostilityLevel.Hostile => Instantiate(hostileEnemy, null, true),
+                EntityBase.HostilityLevel.Friendly => Instantiate(friendlyEntity, entitiesParent, true),
+                EntityBase.HostilityLevel.Neutral => Instantiate(neutralEntity, entitiesParent, true),
+                EntityBase.HostilityLevel.Hostile => Instantiate(hostileEnemy, entitiesParent, true),
                 _ => null
             };
 
@@ -117,8 +177,9 @@ public class InputController : MonoBehaviour
                     Entity.transform.position = temp;
             }
         }
-    }
 
+        previewingCancelled = false;
+    }
 
     private void ToggleSimulation(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -143,20 +204,18 @@ public class InputController : MonoBehaviour
         hostilityLevel = EntityBase.HostilityLevel.Friendly;
     }
 
-    private void OnEnable()
-    {
-        inputActions.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputActions.Disable();
-    }
-
     private void SwitchCamera(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (topDownCamera.gameObject.activeSelf)
         {
+            if(!thirdPersonCamera.transform.parent && entitiesParent.childCount > 0)
+            {
+                Transform child = entitiesParent.GetChild(0);
+                thirdPersonCamera.transform.parent = child;
+                thirdPersonCamera.transform.localPosition = new Vector3(0, 2, -4);
+                thirdPersonCamera.transform.localRotation = Quaternion.identity;
+            }
+
             topDownCamera.gameObject.SetActive(false);
             thirdPersonCamera.gameObject.SetActive(true);
 

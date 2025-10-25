@@ -173,11 +173,14 @@ namespace Entities
 
                 while (Time.time < walkEndTime && ES.isWandering)
                 {
-                    transform.LookAt(transform.position + randomDirection);
+                    StartCoroutine(LookAt(transform.position + randomDirection));
+
                     Vector3 movement = transform.forward * (ES.speed * Time.deltaTime);
-                    if(EntityRigidbody)
-                    EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
+                    if (EntityRigidbody)
+                        EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
                     yield return null;
+
+                    
                 }
 
                 float pauseDuration = UnityEngine.Random.Range(1f, 3f);
@@ -320,7 +323,10 @@ namespace Entities
 
                 Vector3 escapeDirection = Vector3.zero; //Add all pursuers' vectors together and normalize
                 foreach (EntityBase entity in entities)
-                    escapeDirection += entity.GetCurrentDirection();
+                {
+                    escapeDirection += (transform.position - entity.transform.position).normalized;
+                }
+                    //escapeDirection += entity.GetCurrentDirection();
                 
                 escapeDirection = escapeDirection.normalized;
                 
@@ -361,7 +367,7 @@ namespace Entities
             if(!toEntity)
                 _gEscapeDirection = direction;
 
-            transform.LookAt(transform.position + direction);
+            StartCoroutine(LookAt(transform.position + direction));
 
             Vector3 movement = transform.forward * (ES.runSpeed * Time.deltaTime);
         
@@ -372,6 +378,16 @@ namespace Entities
             return movement.magnitude;
         }
 
+        private IEnumerator LookAt(Vector3 vector3)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(vector3 - transform.position);
+            while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5);
+                yield return null;
+            }
+        }
+
         protected virtual float WalkToFrom(EntityBase entity, bool toEntity = true)
         {
             ES.isMoving = true;
@@ -380,7 +396,7 @@ namespace Entities
                 (entity.transform.position - transform.position).normalized : 
                 (transform.position - entity.transform.position).normalized;
 
-            transform.LookAt(transform.position + direction);
+            StartCoroutine(LookAt(transform.position + direction));
 
             Vector3 movement = transform.forward * (ES.speed * Time.deltaTime);
             EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
@@ -396,7 +412,7 @@ namespace Entities
             
             ES.isMoving = true;
 
-            transform.LookAt(transform.position + direction);
+            StartCoroutine(LookAt(transform.position + direction));
 
             Vector3 movement = transform.forward * (ES.runSpeed * Time.deltaTime);
             EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
@@ -411,7 +427,7 @@ namespace Entities
         {
             ES.isMoving = true;
             
-            transform.LookAt(transform.position + direction);
+            StartCoroutine(LookAt(transform.position + direction));
 
             Vector3 movement = transform.forward * (ES.speed * Time.deltaTime);
             EntityRigidbody.MovePosition(EntityRigidbody.position + movement);
@@ -492,7 +508,6 @@ namespace Entities
             if (!fromEntity) return;
             Vector3 knockbackDirection = (fromEntity.transform.position - transform.position).normalized;
             fromEntity.EntityRigidbody.AddForce(knockbackDirection * ES.knockbackForce, ForceMode.Impulse);
-            fromEntity.EntityRigidbody.AddForce(new Vector3(0, 1, 0).normalized * (ES.knockbackForce * 0.4f), ForceMode.Impulse);
         }
 
         public void GetEntitiesByProximity(float radius, out List<EntityBase> outEntities, bool byProximity) // should be executed only once per second
