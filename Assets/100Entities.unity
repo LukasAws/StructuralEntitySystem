@@ -195,7 +195,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &79614480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &608515471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,7 +1137,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &693538357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1334,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &728379327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &794037898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,7 +1840,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &831894658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2137,7 +2137,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1080515195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,7 +2334,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1111364172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,7 +2531,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1138276449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2728,7 +2728,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1144881752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3036,7 +3036,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1240018150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3483,7 +3483,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1307516466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,7 +3680,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1374325543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3988,7 +3988,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1594108067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4185,7 +4185,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1668579080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4709,7 +4709,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1831868202
 MonoBehaviour:
   m_ObjectHideFlags: 0
