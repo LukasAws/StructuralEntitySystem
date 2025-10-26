@@ -378,8 +378,8 @@ namespace Entities
 
             RotateTowards(transform.position + direction);
             Vector3 movement = transform.forward * (_entityStats.runSpeed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement);
-
+            _rigidbody.MovePosition(_rigidbody.position + movement); 
+            
             LoseStamina(2f);
 
             return movement.magnitude;
@@ -420,7 +420,7 @@ namespace Entities
             RotateTowards(transform.position + direction);
 
             Vector3 movement = transform.forward * (_entityStats.runSpeed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement);
+            _rigidbody.MovePosition(_rigidbody.position + movement); // TODO: if the entity collides with an obstacle, don't push it into the obstacle
             if(_entityStats.attackedBy.Count > 0) _gEscapeDirection = direction;
 
             LoseStamina(2f);
@@ -435,7 +435,7 @@ namespace Entities
             RotateTowards(transform.position + direction);
 
             Vector3 movement = transform.forward * (_entityStats.speed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement);
+            _rigidbody.MovePosition(_rigidbody.position + movement); // TODO: if the entity collides with an obstacle, don't push it into the obstacle
             _gEscapeDirection = direction;
 
             return movement.magnitude;
