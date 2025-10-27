@@ -1,9 +1,11 @@
 using UnityEngine;
+using Entities.SpeciesStats;
 
 namespace Entities.Species
 {
-    public abstract class DogBase : MonoBehaviour
+    [RequireComponent(typeof(DogStats))]
+    public abstract class DogBase : NeutralEntityBase
     {
-
+        
     }
 }

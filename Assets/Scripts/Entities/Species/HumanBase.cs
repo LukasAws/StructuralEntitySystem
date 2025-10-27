@@ -1,7 +1,11 @@
+using UnityEngine;
+using Entities.SpeciesStats;
+
 namespace Entities.Species
 {
-    public abstract class HumanBase : EntityBase
+    [RequireComponent(typeof(HumanStats))]
+    public abstract class HumanBase : NeutralEntityBase
     {
-
+        
     }
 }

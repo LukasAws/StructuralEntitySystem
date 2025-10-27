@@ -1,7 +1,7 @@
 namespace Entities.Species.Horses
 {
-    public class BlackHorse : HorseBase
+    public sealed class BlackHorse : HorseBase
     {
-
+        
     }
 }

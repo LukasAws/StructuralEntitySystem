@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Entities
 {
+    
     [Serializable]
     public class EntityStats : MonoBehaviour
     {
@@ -18,8 +19,10 @@ namespace Entities
             runSpeed = 6f;
             stamina = 100f;
             staminaRegen = 15f;
-            experience = 0f;
+            experience = 3f;
         }
+
+        public EntityBase.HostilityLevel hostilityLevel = EntityBase.HostilityLevel.Neutral;
 
         [Header("Health")]
         [Min(0f)]
@@ -53,9 +56,9 @@ namespace Entities
 
         [Header("Attack")]
         [Min(0f)]
-        public float attackDamage = 10f; // no max
+        public float attackDamage = 5f; // no max
         [Range(0f, 10f)]
-        public float attackRange = 5f; // max 10
+        public float attackRange = 1f; // max 10
         [Min(0f)]
         public float attackCooldown = 0.6f; // seconds between attacks
         [Range(0f, 45f)]
@@ -63,20 +66,19 @@ namespace Entities
 
 
         [Header("Misc")]
+        public float obstacleDetectionDistance = 2f;
         public Guid EntityID { get; private set; } = Guid.NewGuid();
 
-        public ushort entitiesKilledCount = 0;
+        public int entitiesKilledCount = 0;
 
         [Min(0f)]
         public float experience = 3f; // no max
-
-        public EntityBase.HostilityLevel hostilityLevel = EntityBase.HostilityLevel.Neutral;
 
         [Header("Intermediate Variables")]
         public bool isOutOfStamina = false;
         public bool isLowHealth = false;
         public bool isMoving = false;
-        public float obstacleDetectionDistance = 2f;
+
         public float attackTimestamp = -Mathf.Infinity; // last attack time
         public float staminaTimestamp = -Mathf.Infinity; // last stamina change time
         public float healthTimestamp = -Mathf.Infinity; // last health change time

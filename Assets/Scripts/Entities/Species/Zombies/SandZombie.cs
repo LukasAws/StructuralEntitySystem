@@ -1,12 +1,11 @@
+using System;
+using UnityEngine;
+using UnityEngine.Serialization;
+
 namespace Entities.Species.Zombies
 {
-    public class SandZombie : ZombieBase
+    public sealed class SandZombie : ZombieBase
     {
-
-        // Update is called once per frame
-        void Update()
-        {
         
-        }
     }
 }

@@ -2,18 +2,8 @@ using UnityEngine;
 
 namespace Entities.Species.Horses
 {
-    public class DasherHorse : MonoBehaviour
+    public sealed class DasherHorse : HorseBase
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

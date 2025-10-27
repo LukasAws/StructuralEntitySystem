@@ -2,18 +2,8 @@ using UnityEngine;
 
 namespace Entities.Species.Chickens
 {
-    public class GeneratorChicken : MonoBehaviour
+    public sealed class GeneratorChicken : ChickenBase
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

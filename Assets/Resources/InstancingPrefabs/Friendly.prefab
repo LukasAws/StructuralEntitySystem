@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &581210086891062742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557328582750341349, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371328135014174231, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 926c09cc5426f4d49a5418a1549d37c5, type: 2}
+    - target: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      propertyPath: m_Name
+      value: Friendly
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1318253643855215338}
+    - targetCorrespondingSourceObject: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5444409763846048713}
+  m_SourcePrefab: {fileID: 100100000, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+--- !u!1 &6115405582351929276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
+  m_PrefabInstance: {fileID: 581210086891062742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1318253643855215338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6115405582351929276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36044d81c5e06a6488c384d762cdc8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.SpeciesStats.ChickenStats
+  hostilityLevel: 1
+  health: 100
+  maxHealth: 100
+  armor: 0
+  healthRegen: 2
+  healthCooldown: 5
+  lowHealthThreshold: 25
+  speed: 3
+  runSpeed: 6
+  stamina: 100
+  maxStamina: 100
+  staminaRegen: 15
+  staminaCooldown: 5
+  outOfStaminaUpperThreshold: 50
+  attackDamage: 3
+  attackRange: 1
+  attackCooldown: 0.6
+  visibilityDistance: 12
+  obstacleDetectionDistance: 2
+  entitiesKilledCount: 0
+  experience: 3
+  isOutOfStamina: 0
+  isLowHealth: 0
+  isMoving: 0
+  attackTimestamp: -Infinity
+  staminaTimestamp: -Infinity
+  healthTimestamp: -Infinity
+  knockbackForce: 7
+  attackedBy: []
+  speedBoost: 1.25
+  staminaBoost: 1.2
+  staminaLossReduction: 0.6
+--- !u!114 &-5444409763846048713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6115405582351929276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e49d467665f8aa4cb0c36cdd4d19946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Chickens.WhiteChicken
+  attackTargetPublic: {fileID: 0}
+  eggLayingInterval: 300
+  eggLayingAmount: 1
