@@ -304,10 +304,8 @@ namespace Entities
                 
                 Debug.DrawLine(transform.position, transform.position + _escapeDirection.normalized*5, Color.darkRed);
 
-                if (!_escapeDirection.Equals(Vector3.zero))
+                if (!_escapeDirection.Equals(Vector3.zero)) // if there is an escape direction
                     RunInDirection(_escapeDirection);
-                else
-                    onEscapeEnd?.Invoke(entities[0]);
                 
                 yield return new WaitForFixedUpdate();
             }

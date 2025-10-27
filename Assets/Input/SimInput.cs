@@ -169,7 +169,7 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e32db98d-8ce3-4240-aa52-637603e2afdd"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -334,7 +334,7 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a493cc21-ea84-49f0-954c-5d4556616c77"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -376,6 +376,284 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""FreeRoam"",
+            ""id"": ""340a9f55-5910-4f74-b506-a6f400be0d3a"",
+            ""actions"": [
+                {
+                    ""name"": ""SwitchCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc4710e4-6020-4a0a-810b-97a1d3140800"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Forward"",
+                    ""type"": ""Value"",
+                    ""id"": ""c9292d65-9666-4b53-be29-15dd2734bccf"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Value"",
+                    ""id"": ""b60901a7-16a9-4030-8f64-a3972a6eb7ac"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Value"",
+                    ""id"": ""747919c7-250e-49bb-9c5f-75be1bd871b4"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SwitchToEntity"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a977fa5-1f11-4c47-82ab-1de410b7c996"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""9f437fa4-9925-4f48-83f3-c785b7012098"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""38f198ad-eb36-4ab5-9773-673888e88514"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleSimulation"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd2f96b5-d35c-4f33-8e4f-16e8c45f0a35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""93baae00-8f81-4e65-9444-e8164f3d6361"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""bed5a37b-5ba9-41eb-9774-aa121366fca3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""a9f2525d-d32f-47a6-93ee-54a35266e4dd"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""0cb6fd8b-ec20-41b0-816d-2498d26cb788"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7272a9bb-96b4-4eee-8605-38da2620e9ae"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b9075e34-982e-4757-b0b7-9185642506fb"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""c65bacbd-c201-4ca6-a95a-578b7d51b33b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c4339dba-271c-4790-a0dc-751045c377d2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""819badff-51da-4aaa-b534-a6a8e405b4e5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""466b7daf-c2c9-45e0-a426-81fcb127d56b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba592b19-46f4-4eda-a43d-7f6c7e595bbe"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToEntity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""3a69ef3e-4e41-47c3-abb7-9b8d4fa37d8d"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""2efbc5c8-0b6c-4bc2-964d-15ed508b8358"",
+                    ""path"": ""<Mouse>/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""771baad8-570b-42be-9f26-251111c0d884"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fae91a47-547e-4b72-995b-2ef6d5681f51"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b318126b-251b-4301-ac26-c0c27dc6cf9b"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05a4d00f-bc48-42dd-98ae-a898c61d956c"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b018eb8b-b580-46cb-a932-fedef9eea4d8"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleSimulation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -396,12 +674,23 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         m_ThirdPerson_SwitchEntityInc = m_ThirdPerson.FindAction("SwitchEntityInc", throwIfNotFound: true);
         m_ThirdPerson_SwitchEntityDec = m_ThirdPerson.FindAction("SwitchEntityDec", throwIfNotFound: true);
         m_ThirdPerson_ToggleSimulation = m_ThirdPerson.FindAction("ToggleSimulation", throwIfNotFound: true);
+        // FreeRoam
+        m_FreeRoam = asset.FindActionMap("FreeRoam", throwIfNotFound: true);
+        m_FreeRoam_SwitchCamera = m_FreeRoam.FindAction("SwitchCamera", throwIfNotFound: true);
+        m_FreeRoam_Forward = m_FreeRoam.FindAction("Forward", throwIfNotFound: true);
+        m_FreeRoam_Right = m_FreeRoam.FindAction("Right", throwIfNotFound: true);
+        m_FreeRoam_Up = m_FreeRoam.FindAction("Up", throwIfNotFound: true);
+        m_FreeRoam_SwitchToEntity = m_FreeRoam.FindAction("SwitchToEntity", throwIfNotFound: true);
+        m_FreeRoam_Rotate = m_FreeRoam.FindAction("Rotate", throwIfNotFound: true);
+        m_FreeRoam_Sprint = m_FreeRoam.FindAction("Sprint", throwIfNotFound: true);
+        m_FreeRoam_ToggleSimulation = m_FreeRoam.FindAction("ToggleSimulation", throwIfNotFound: true);
     }
 
     ~@SimInput()
     {
         UnityEngine.Debug.Assert(!m_TopDownCamera.enabled, "This will cause a leak and performance issues, SimInput.TopDownCamera.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_ThirdPerson.enabled, "This will cause a leak and performance issues, SimInput.ThirdPerson.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_FreeRoam.enabled, "This will cause a leak and performance issues, SimInput.FreeRoam.Disable() has not been called.");
     }
 
     /// <summary>
@@ -775,6 +1064,179 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="ThirdPersonActions" /> instance referencing this action map.
     /// </summary>
     public ThirdPersonActions @ThirdPerson => new ThirdPersonActions(this);
+
+    // FreeRoam
+    private readonly InputActionMap m_FreeRoam;
+    private List<IFreeRoamActions> m_FreeRoamActionsCallbackInterfaces = new List<IFreeRoamActions>();
+    private readonly InputAction m_FreeRoam_SwitchCamera;
+    private readonly InputAction m_FreeRoam_Forward;
+    private readonly InputAction m_FreeRoam_Right;
+    private readonly InputAction m_FreeRoam_Up;
+    private readonly InputAction m_FreeRoam_SwitchToEntity;
+    private readonly InputAction m_FreeRoam_Rotate;
+    private readonly InputAction m_FreeRoam_Sprint;
+    private readonly InputAction m_FreeRoam_ToggleSimulation;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "FreeRoam".
+    /// </summary>
+    public struct FreeRoamActions
+    {
+        private @SimInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public FreeRoamActions(@SimInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/SwitchCamera".
+        /// </summary>
+        public InputAction @SwitchCamera => m_Wrapper.m_FreeRoam_SwitchCamera;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/Forward".
+        /// </summary>
+        public InputAction @Forward => m_Wrapper.m_FreeRoam_Forward;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/Right".
+        /// </summary>
+        public InputAction @Right => m_Wrapper.m_FreeRoam_Right;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/Up".
+        /// </summary>
+        public InputAction @Up => m_Wrapper.m_FreeRoam_Up;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/SwitchToEntity".
+        /// </summary>
+        public InputAction @SwitchToEntity => m_Wrapper.m_FreeRoam_SwitchToEntity;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/Rotate".
+        /// </summary>
+        public InputAction @Rotate => m_Wrapper.m_FreeRoam_Rotate;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/Sprint".
+        /// </summary>
+        public InputAction @Sprint => m_Wrapper.m_FreeRoam_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/ToggleSimulation".
+        /// </summary>
+        public InputAction @ToggleSimulation => m_Wrapper.m_FreeRoam_ToggleSimulation;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_FreeRoam; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="FreeRoamActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(FreeRoamActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="FreeRoamActions" />
+        public void AddCallbacks(IFreeRoamActions instance)
+        {
+            if (instance == null || m_Wrapper.m_FreeRoamActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_FreeRoamActionsCallbackInterfaces.Add(instance);
+            @SwitchCamera.started += instance.OnSwitchCamera;
+            @SwitchCamera.performed += instance.OnSwitchCamera;
+            @SwitchCamera.canceled += instance.OnSwitchCamera;
+            @Forward.started += instance.OnForward;
+            @Forward.performed += instance.OnForward;
+            @Forward.canceled += instance.OnForward;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @SwitchToEntity.started += instance.OnSwitchToEntity;
+            @SwitchToEntity.performed += instance.OnSwitchToEntity;
+            @SwitchToEntity.canceled += instance.OnSwitchToEntity;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
+            @ToggleSimulation.started += instance.OnToggleSimulation;
+            @ToggleSimulation.performed += instance.OnToggleSimulation;
+            @ToggleSimulation.canceled += instance.OnToggleSimulation;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="FreeRoamActions" />
+        private void UnregisterCallbacks(IFreeRoamActions instance)
+        {
+            @SwitchCamera.started -= instance.OnSwitchCamera;
+            @SwitchCamera.performed -= instance.OnSwitchCamera;
+            @SwitchCamera.canceled -= instance.OnSwitchCamera;
+            @Forward.started -= instance.OnForward;
+            @Forward.performed -= instance.OnForward;
+            @Forward.canceled -= instance.OnForward;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @SwitchToEntity.started -= instance.OnSwitchToEntity;
+            @SwitchToEntity.performed -= instance.OnSwitchToEntity;
+            @SwitchToEntity.canceled -= instance.OnSwitchToEntity;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
+            @ToggleSimulation.started -= instance.OnToggleSimulation;
+            @ToggleSimulation.performed -= instance.OnToggleSimulation;
+            @ToggleSimulation.canceled -= instance.OnToggleSimulation;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="FreeRoamActions.UnregisterCallbacks(IFreeRoamActions)" />.
+        /// </summary>
+        /// <seealso cref="FreeRoamActions.UnregisterCallbacks(IFreeRoamActions)" />
+        public void RemoveCallbacks(IFreeRoamActions instance)
+        {
+            if (m_Wrapper.m_FreeRoamActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="FreeRoamActions.AddCallbacks(IFreeRoamActions)" />
+        /// <seealso cref="FreeRoamActions.RemoveCallbacks(IFreeRoamActions)" />
+        /// <seealso cref="FreeRoamActions.UnregisterCallbacks(IFreeRoamActions)" />
+        public void SetCallbacks(IFreeRoamActions instance)
+        {
+            foreach (var item in m_Wrapper.m_FreeRoamActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_FreeRoamActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="FreeRoamActions" /> instance referencing this action map.
+    /// </summary>
+    public FreeRoamActions @FreeRoam => new FreeRoamActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "TopDownCamera" which allows adding and removing callbacks.
     /// </summary>
@@ -867,6 +1329,70 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitchEntityDec(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleSimulation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleSimulation(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "FreeRoam" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="FreeRoamActions.AddCallbacks(IFreeRoamActions)" />
+    /// <seealso cref="FreeRoamActions.RemoveCallbacks(IFreeRoamActions)" />
+    public interface IFreeRoamActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "SwitchCamera" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchCamera(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Forward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnForward(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Right" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Up" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SwitchToEntity" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSwitchToEntity(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Rotate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRotate(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSprint(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "ToggleSimulation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
