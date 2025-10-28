@@ -961,6 +961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040409237}
   - component: {fileID: 1040409236}
+  - component: {fileID: 1040409238}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -988,7 +989,6 @@ MonoBehaviour:
   hostileEnemy: {fileID: -2121534552137652882, guid: f1e04f00de7da554c8eae1493aaf3ed8, type: 3}
   entitiesParent: {fileID: 233307196}
   previewGo: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
-  cameraSensitivity: 5
 --- !u!4 &1040409237
 Transform:
   m_ObjectHideFlags: 0
@@ -1004,6 +1004,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1040409238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040409235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fb2051a920e0e41a74c30105d70397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Misc.Input.InputValues
+  cameraSensitivity: 20
+  cameraSprintSpeed: 30
+  cameraNormalSpeed: 20
+  cameraSwitchEntityDelay: 2
+  cameraSprintSpeedMultiplier: 1
 --- !u!1 &1170073004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

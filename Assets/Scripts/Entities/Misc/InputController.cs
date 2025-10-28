@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Entities.Misc.Input
+namespace Entities.Misc
 {
     [RequireComponent(typeof(InputValues))]
     public class InputController : MonoBehaviour
@@ -91,7 +91,6 @@ namespace Entities.Misc.Input
                 Vector3 temp = ray.GetPoint(distance);
                 _previewObject.transform.position = temp;
             }
-                
         }
 
         private void OnGUI()
@@ -133,6 +132,7 @@ namespace Entities.Misc.Input
             _inputActions.FreeRoam.Up.performed += ctx => _upMomentum = ctx.ReadValue<float>();
             _inputActions.FreeRoam.Rotate.performed += ctx => _rotationMomentum = ctx.ReadValue<Vector2>();
             _inputActions.FreeRoam.Sprint.performed += _ => sprinting = true;
+            _inputActions.FreeRoam.SprintSpeed.performed += ctx => SprintSpeedBoostChange(ctx.ReadValue<float>());
             
             _inputActions.FreeRoam.Forward.canceled += _ => _forwardMomentum = 0;
             _inputActions.FreeRoam.Right.canceled += _ => _rightMomentum = 0;
@@ -140,7 +140,13 @@ namespace Entities.Misc.Input
             _inputActions.FreeRoam.Rotate.canceled += _ => _rotationMomentum = Vector2.zero;
             _inputActions.FreeRoam.Sprint.canceled += _ => sprinting = false;
         }
-        
+
+        private void SprintSpeedBoostChange(float delta)
+        {
+            float newSpeed = InputValues.Instance.GetCameraSprintSpeedMultiplier() + delta * 0.1f;
+            InputValues.Instance.SetCameraSprintSpeedMultiplier(newSpeed);
+        }
+
         private float _forwardMomentum;
         private float _rightMomentum;
         private float _upMomentum;
@@ -148,9 +154,13 @@ namespace Entities.Misc.Input
 
         private void Update()
         {
-            HandlePreviewing();
+            if(_cameraType == CameraType.TopDown)
+                HandlePreviewing();
             
-            float speed = (sprinting ? InputValues.Instance.GetCameraSprintSpeed() : InputValues.Instance.GetCameraNormalSpeed()) * Time.unscaledDeltaTime;
+            float speed = (sprinting 
+                ? InputValues.Instance.GetCameraSprintSpeed() * InputValues.Instance.GetCameraSprintSpeedMultiplier()
+                : InputValues.Instance.GetCameraNormalSpeed()) 
+                * Time.unscaledDeltaTime;
             
             if(_forwardMomentum != 0)
                 freeRoamCamera.transform.position += freeRoamCamera.transform.forward * (_forwardMomentum * speed);
@@ -180,6 +190,8 @@ namespace Entities.Misc.Input
                     thirdPersonCamera.transform.parent = entity.transform;
                     thirdPersonCamera.transform.localPosition = new Vector3(0, 2, -4);
                     thirdPersonCamera.transform.localRotation = Quaternion.identity;
+                    
+                    thirdCameraDelay = Time.realtimeSinceStartup;
                     SwitchCamera(CameraType.ThirdPerson);
                 }
             }
@@ -313,8 +325,6 @@ namespace Entities.Misc.Input
                     
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
-
-                    thirdCameraDelay = Time.realtimeSinceStartup;
                     
                     if(!thirdPersonCamera.transform.parent && entitiesParent.childCount > 0)
                     {

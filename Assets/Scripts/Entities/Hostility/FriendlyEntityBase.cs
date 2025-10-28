@@ -1,7 +1,6 @@
-using Entities.Interfaces;
-using UnityEngine;
+using Entities.Hostility.Interfaces;
 
-namespace Entities
+namespace Entities.Hostility
 {
     public abstract class FriendlyEntityBase : EntityBase, IFriendlyEntity
     {

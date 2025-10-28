@@ -1,4 +1,4 @@
-namespace Entities.Interfaces
+namespace Entities.Hostility.Interfaces
 {
     public interface IEntityHostility<in TEntityBase> where TEntityBase : EntityBase
     {

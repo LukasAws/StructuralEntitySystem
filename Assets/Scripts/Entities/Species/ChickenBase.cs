@@ -1,3 +1,4 @@
+using Entities.Hostility;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Entities.SpeciesStats;

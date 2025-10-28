@@ -1,23 +1,21 @@
 using UnityEngine;
 
-namespace Entities.Misc.Input
+namespace Entities.Misc
 {
     public class InputValues : MonoBehaviour
     {
         public static InputValues Instance;
 
-        [Tooltip("Mouse sensitivity for camera movement.")]
-        [Range(0.1f, 20f)]
-        [SerializeField] private float cameraSensitivity = 5f;
-        [Tooltip("Sprint movement speed of the camera.")]
-        [Range(10f, 30f)]
-        [SerializeField] private float cameraSprintSpeed = 20f;
-        [Tooltip("Normal movement speed of the camera.")]
-        [Range(5f, 20f)]
-        [SerializeField] private float cameraNormalSpeed = 7f;
-        [Tooltip("Delay in seconds when switching between controlled entities.")]
-        [Range(0.1f, 2f)]
-        [SerializeField] private float cameraSwitchEntityDelay = 0.5f;
+        [Tooltip("Mouse sensitivity for camera movement."), Range(0.1f, 20f), SerializeField]
+        private float cameraSensitivity = 5f;
+        [Tooltip("Sprint movement speed of the camera."), Range(10f, 30f), SerializeField] 
+        private float cameraSprintSpeed = 20f;
+        [Tooltip("Normal movement speed of the camera."), Range(5f, 20f), SerializeField]
+        private float cameraNormalSpeed = 7f;
+        [Tooltip("Delay in seconds when switching between controlled entities."), Range(0.1f, 2f), SerializeField]
+        private float cameraSwitchEntityDelay = 0.5f;
+        [Tooltip("Multiplier for sprint speed when using the camera."), Range(0.2f, 2f), SerializeField]
+        private float cameraSprintSpeedMultiplier = 1f;
 
         private void OnEnable()
         {
@@ -36,6 +34,7 @@ namespace Entities.Misc.Input
             cameraSprintSpeed = PlayerPrefs.GetFloat("CameraSprintSpeed", 20f);
             cameraSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 5f);
             cameraSwitchEntityDelay = PlayerPrefs.GetFloat("CameraSwitchEntityDelay", 0.5f);
+            cameraSprintSpeedMultiplier = PlayerPrefs.GetFloat("CameraSprintSpeedMultiplier", 1f);
         }
 
         public void SaveValues()
@@ -44,6 +43,8 @@ namespace Entities.Misc.Input
             PlayerPrefs.SetFloat("CameraSprintSpeed", cameraSprintSpeed);
             PlayerPrefs.SetFloat("CameraNormalSpeed", cameraSprintSpeed);
             PlayerPrefs.SetFloat("CameraSwitchEntityDelay", cameraSwitchEntityDelay);
+            PlayerPrefs.SetFloat("CameraSprintSpeedMultiplier", cameraSprintSpeedMultiplier);
+            PlayerPrefs.Save();
         }
 
         public void SetCameraSensitivity(float sensitivity) => cameraSensitivity = Mathf.Clamp(sensitivity, 0.1f, 20f);
@@ -54,6 +55,8 @@ namespace Entities.Misc.Input
         public float GetCameraNormalSpeed() => cameraNormalSpeed;
         public void SetCameraSwitchEntityDelay(float delay) => cameraSwitchEntityDelay = Mathf.Clamp(delay, 0.1f, 2f);
         public float GetCameraSwitchEntityDelay() => cameraSwitchEntityDelay;
+        public void SetCameraSprintSpeedMultiplier(float multiplier) => cameraSprintSpeedMultiplier = Mathf.Clamp(multiplier, 0.2f, 2f);
+        public float GetCameraSprintSpeedMultiplier() => cameraSprintSpeedMultiplier;
     }
 }
 

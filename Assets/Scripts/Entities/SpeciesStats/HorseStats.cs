@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Entities.Species
+namespace Entities.SpeciesStats
 {
     [Serializable]
     public class HorseStats : EntityStats

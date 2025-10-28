@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Entities.Interfaces;
-using Entities.Misc.Input;
+using Entities.Hostility.Interfaces;
+using Entities.Misc;
 using UnityEngine;
 
 namespace Entities
@@ -44,58 +44,14 @@ namespace Entities
 
         public EntityStats entityStats { get; private set; }
         private Rigidbody _rigidbody;
+        
+        
 
-        //Methods
+        //------------------------------------------------------------------------------
+        
+#region Gizmos
 
-        protected virtual void Awake()
-        {
-             entityStats = GetComponent<EntityStats>();
-             _rigidbody = GetComponent<Rigidbody>();
-
-            if (!EntityRegistry.ContainsKey(entityStats.EntityID))
-                EntityRegistry.Add(entityStats.EntityID, this);
-
-            onAttack = () =>
-            {
-                if (entityStats.attackTimestamp + entityStats.attackCooldown > Time.time) return null;
-                
-                if (!AttackTarget.entityStats.attackedBy.Contains(this))
-                    AttackTarget.entityStats.attackedBy.Add(this);
-                
-                entityStats.attackTimestamp = Time.time;
-                return AttackTarget.TakeDamage(entityStats.attackDamage, this);
-            };
-
-            onPursuitStart += (e) =>
-            {
-                StopAllCoroutines();
-                AttackTarget = e;
-                StartCoroutine(Pursue());
-            };
-
-            onPursuitEnd += e =>
-            {
-                StopAllCoroutines();
-                AttackTarget = null;
-                StartCoroutine(Wander());
-            };
-
-            onEscapeStart += e =>
-            {
-                StopAllCoroutines();
-                StartCoroutine(Escape(entityStats.attackedBy));
-            };
-
-            onEscapeEnd += e =>
-            {
-                StopAllCoroutines();
-                if (!entityStats.attackedBy.Contains(this))
-                    entityStats.attackedBy.Remove(e);
-                StartCoroutine(Wander());
-            };
-
-        }
-
+        
         [Header("Gizmos")]
         private Vector3 _gWanderEndPoint;
         private Vector3 _gEscapeDirection;
@@ -137,23 +93,81 @@ namespace Entities
             if(AttackTarget || entityStats.attackedBy.Count > 0)
                 _gWanderEndPoint = Vector3.zero;
         }
+        
+#endregion
+        
+        //------------------------------------------------------------------------------
+        
+#region Unity Methods
+        
+        protected virtual void Awake()
+        {
+             entityStats = GetComponent<EntityStats>();
+             _rigidbody = GetComponent<Rigidbody>();
+
+            if (!EntityRegistry.ContainsKey(entityStats.EntityID))
+                EntityRegistry.Add(entityStats.EntityID, this);
+
+            onAttack = () =>
+            {
+                if (entityStats.attackTimestamp + entityStats.attackCooldown > Time.time) return null;
+                
+                if (!AttackTarget.entityStats.attackedBy.Contains(this))
+                    AttackTarget.entityStats.attackedBy.Add(this);
+                
+                entityStats.attackTimestamp = Time.time;
+                
+                Knockback(AttackTarget);
+                return AttackTarget.TakeDamage(entityStats.attackDamage, this);
+            };
+
+            onPursuitStart += (e) =>
+            {
+                StopAllCoroutines();
+                AttackTarget = e;
+                entityStats.isMoving = true;
+                StartCoroutine(Pursue());
+            };
+
+            onPursuitEnd += e =>
+            {
+                StopAllCoroutines();
+                AttackTarget = null;
+                entityStats.isMoving = false;
+                StartCoroutine(Wander());
+            };
+
+            onEscapeStart += e =>
+            {
+                StopAllCoroutines();  
+                entityStats.isMoving = true;
+                StartCoroutine(Escape(entityStats.attackedBy));
+            };
+
+            onEscapeEnd += e =>
+            {
+                StopAllCoroutines();
+                if (!entityStats.attackedBy.Contains(this))
+                    entityStats.attackedBy.Remove(e);
+                entityStats.isMoving = false;
+                StartCoroutine(Wander());
+            };
+
+        }
+        
 
         private void Start()
         {
             StartCoroutine(Wander());
         }
 
-
-        private void FixedUpdate() // the hierarchy of actions matters here
+        protected void FixedUpdate() // the hierarchy of actions matters here
         {
             attackTargetPublic = AttackTarget;
             
             if(transform.position.y <= -20)
                 Die();
-
-            RegainStamina();
-            NaturalHeal();
-
+            
             entityStats.isMoving = false; // has to be the last line in Update
         }
 
@@ -161,11 +175,16 @@ namespace Entities
         {
             EntityRegistry.Remove(entityStats.EntityID);
         }
+        
+#endregion
+
+        //------------------------------------------------------------------------------
+        
+#region Entity Logic
 
         // if all pursuit values are 'false' the entities will wander
         protected virtual IEnumerator Wander()
         {
-            entityStats.isMoving = true;
 
             float pauseEndTime = 0;
             
@@ -198,11 +217,15 @@ namespace Entities
                 
                 while (Time.time < walkEndTime)
                 {
+                    
                     RotateTowards(transform.position + randomDirection);
 
                     Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
+                    Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
+                    
+                    entityStats.isMoving = true;
                     if (_rigidbody)
-                        _rigidbody.MovePosition(_rigidbody.position + movement);
+                        _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
                     yield return null;
                 }
             }
@@ -210,6 +233,8 @@ namespace Entities
 
         private IEnumerator Pursue()
         {
+            entityStats.isMoving = true;
+            
             if (!AttackTarget)
             {
                 Debug.LogAssertion("Pursued _attackTarget is null");
@@ -255,31 +280,9 @@ namespace Entities
             }
         }
 
-        public abstract void HandleAttack(EntityBase attackingEntity);
-
-        protected virtual EntityBase TakeDamage(float damage, EntityBase receivedFromEntity = null)
-        {
-            float damageTaken = damage * (1f - entityStats.armor / 100f * 0.66f);
-            entityStats.health -= damageTaken;
-
-            entityStats.isLowHealth = entityStats.health <= entityStats.lowHealthThreshold;
-
-            if (entityStats.health <= 0f)
-                return Die(receivedFromEntity);
-            
-            if (receivedFromEntity)
-                Knockback(receivedFromEntity);
-
-            if (receivedFromEntity)
-                HandleAttack(receivedFromEntity);
-
-            entityStats.healthTimestamp = Time.time;
-
-            return null;
-        }
-
         private IEnumerator Escape(List<EntityBase> entities)
         {
+            entityStats.isMoving = true;
             if (entities.Count == 0)
                 onEscapeEnd(AttackTarget);
 
@@ -310,22 +313,62 @@ namespace Entities
             }
         }
 
+#endregion
+
+        //------------------------------------------------------------------------------
+        
+#region Attack Methods
+
+        public abstract void HandleAttack(EntityBase attackingEntity);
+
+        protected virtual EntityBase TakeDamage(float damage, EntityBase receivedFromEntity = null)
+        {
+            float damageTaken = damage * (1f - entityStats.armor / 100f * 0.66f);
+            entityStats.health -= damageTaken;
+
+
+            if (entityStats.health <= 0f)
+                return Die(receivedFromEntity);
+
+            if (receivedFromEntity)
+            {
+                HandleAttack(receivedFromEntity);
+            }
+
+            entityStats.healthTimestamp = Time.time;
+
+            return null;
+        }
+
         protected virtual EntityBase Die(EntityBase byEntity = null)
         {
-            if (transform.childCount > 0) // if there is a camera{
+            if (transform.childCount > 0) // if there is a camera
             {
-                InputController.Instance.SetNextEntity(); // not sure if the pos and rot will work
+                InputController.Instance.SetNextEntity();
             }
 
             Destroy(gameObject);
             
             if (byEntity)
             {
+                byEntity.entityStats.experience = entityStats.experience;
                 byEntity.AttackTarget = null;
                 return this;
             }
             return null;
         }
+
+        protected virtual void Knockback(EntityBase toEntity) // apply from an entity
+        {
+            Vector3 knockbackDirection = (toEntity.transform.position - transform.position).normalized;
+            toEntity._rigidbody.AddForce(knockbackDirection * entityStats.knockbackForce, ForceMode.Impulse);
+        }
+
+#endregion
+        
+        //------------------------------------------------------------------------------
+
+#region Movement Methods
 
         protected virtual float RunToFrom(EntityBase entity, bool toEntity = true) // Runs either toward the entity or away from it 
         {
@@ -341,9 +384,10 @@ namespace Entities
 
             RotateTowards(transform.position + direction);
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement); 
+            Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement); 
             
-            LoseStamina(2f);
+            entityStats.LoseStamina();
 
             return movement.magnitude;
         }
@@ -359,7 +403,8 @@ namespace Entities
             RotateTowards(transform.position + direction);
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement);
+            Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
 
             return movement.magnitude;
         }
@@ -373,10 +418,11 @@ namespace Entities
             RotateTowards(transform.position + direction); 
 
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement); // TODO: FIX ENTITIES GOING INTO WALLS
+            Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
             if(entityStats.attackedBy.Count > 0) _gEscapeDirection = direction;
 
-            LoseStamina(2f);
+            entityStats.LoseStamina();
 
             return movement.magnitude;
         }
@@ -388,84 +434,19 @@ namespace Entities
             RotateTowards(transform.position + direction);
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
-            _rigidbody.MovePosition(_rigidbody.position + movement); // TODO: FIX ENTITIES GOING INTO WALLS
+            Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
             _gEscapeDirection = direction;
 
             return movement.magnitude;
         }
+        
+#endregion
+        
+        //------------------------------------------------------------------------------
 
-        protected virtual float LoseStamina(float amount)
-        {
-            if (entityStats.isOutOfStamina) return 0f;
-
-            float staminaLoss = amount * Time.deltaTime;
-            entityStats.stamina -= staminaLoss;
-            if (entityStats.stamina <= 0f)
-            {
-                entityStats.isOutOfStamina = true;
-                entityStats.stamina = 0f;
-            }
-            entityStats.staminaTimestamp = Time.time;
-
-            return staminaLoss;
-        }
-
-        protected virtual float RegainStamina()
-        {
-            if (entityStats.staminaTimestamp + entityStats.staminaCooldown > Time.time) return 0f;
-            if (entityStats.stamina >= 100f) return 0f;
-
-            float staminaRegain;
-            if (entityStats.isMoving)
-#if HARDMODE
-            staminaRegain = 0f;
-#else
-                staminaRegain = entityStats.staminaRegen * 0.5f * Time.deltaTime;
-#endif
-            else
-                staminaRegain = entityStats.staminaRegen * Time.deltaTime;
-
-            entityStats.stamina += staminaRegain;
-
-            if (entityStats.stamina >= entityStats.outOfStaminaUpperThreshold) entityStats.isOutOfStamina = false;
-            if (entityStats.stamina > 100f) entityStats.stamina = 100f;
-
-            return staminaRegain;
-        }
-
-        protected virtual float EatHeal(float amount) // each food item heals a different amount, hence the parameter
-        {
-            if (entityStats.health >= entityStats.maxHealth) return 0f;
-
-            entityStats.health += amount;
-            if (entityStats.health > entityStats.maxHealth)
-                entityStats.health = entityStats.maxHealth;
-
-            entityStats.healthTimestamp = Time.time;
-
-            return amount;
-        }
-
-        protected virtual float NaturalHeal()
-        {
-            if (entityStats.healthTimestamp + (entityStats.isLowHealth ? entityStats.healthCooldown * 0.5 : entityStats.healthCooldown) > Time.time) return 0f; // Wait 3s/5s after last damage taken
-            if (entityStats.health >= entityStats.maxHealth) return 0f;
-
-            float healAmount = entityStats.healthRegen * Time.deltaTime;
-            entityStats.health += healAmount;
-
-            if (entityStats.health > entityStats.maxHealth) entityStats.health = entityStats.maxHealth;
-
-            return healAmount;
-        }
-
-        protected virtual void Knockback(EntityBase fromEntity) // apply from an entity
-        {
-            if (!fromEntity) return;
-            Vector3 knockbackDirection = (fromEntity.transform.position - transform.position).normalized;
-            fromEntity._rigidbody.AddForce(knockbackDirection * entityStats.knockbackForce, ForceMode.Impulse);
-        }
-
+#region Utility Methods
+        
         public void GetEntitiesByProximity(float radius, out List<EntityBase> outEntities, bool byProximity) // should be executed only once per second
         {
             outEntities = new();
@@ -516,8 +497,12 @@ namespace Entities
         }
 
         public static bool IsInCooldown(float timestamp, float cooldown) => timestamp + cooldown > Time.time;
-
-        private EntityBase AreEntitiesInRange(List<EntityBase> entities)
+        public static Guid GetEntityGuid(EntityBase entity) => entity ? entity.entityStats.EntityID : Guid.Empty;
+        public static EntityBase GetEntityByGuid(Guid guid) => EntityRegistry.GetValueOrDefault(guid);
+        public static float GetProximityToEntity(EntityBase entity1, EntityBase entity2) => Vector3.Distance(entity1.transform.position, entity2.transform.position);
+        public static float GetProximityToEntity(Guid guid1, Guid guid2) => Vector3.Distance(GetEntityByGuid(guid1).transform.position, GetEntityByGuid(guid2).transform.position);
+        public static List<EntityBase> GetAllEntities() => new List<EntityBase>(EntityRegistry.Values);
+        public EntityBase AreEntitiesInRange(List<EntityBase> entities)
         {
             if (entities.Count == 0)
             {
@@ -533,24 +518,16 @@ namespace Entities
 
             return null;
         }
-        public Guid GetEntityGuid() => entityStats.EntityID;
-        public static Guid GetEntityGuid(EntityBase entity) => entity ? entity.entityStats.EntityID : Guid.Empty;
-        private static EntityBase GetEntityByGuid(Guid guid) => EntityRegistry.GetValueOrDefault(guid);
-        private float GetProximityToEntity(EntityBase entity) => Vector3.Distance(transform.position, entity.transform.position);
-        public static float GetProximityToEntity(EntityBase entity1, EntityBase entity2) => Vector3.Distance(entity1.transform.position, entity2.transform.position);
+        
+        public float GetProximityToEntity(EntityBase entity) => Vector3.Distance(transform.position, entity.transform.position);
         public float GetProximityToEntity(Guid guid) => Vector3.Distance(transform.position, GetEntityByGuid(guid).transform.position);
-        public static float GetProximityToEntity(Guid guid1, Guid guid2) => Vector3.Distance(GetEntityByGuid(guid1).transform.position, GetEntityByGuid(guid2).transform.position);
-        public static List<EntityBase> GetAllEntities() => new List<EntityBase>(EntityRegistry.Values);
-        public Vector3 GetCurrentDirection() => transform.forward;
     
-        private void RotateTowards(Vector3 targetPosition)
+        public void RotateTowards(Vector3 targetPosition)
         {
             Vector3 direction = targetPosition - transform.position;
-            if (direction.sqrMagnitude > 0.01f)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
+            if (direction.sqrMagnitude <= 0.01f) return;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
 
         private bool ObstacleDetection()
@@ -572,5 +549,7 @@ namespace Entities
 
             return true;
         }
+        
+#endregion
     }
 }

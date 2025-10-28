@@ -452,6 +452,15 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SprintSpeed"",
+                    ""type"": ""Value"",
+                    ""id"": ""bb3474ad-2fb2-4c29-9068-3e428cc6d563"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -652,6 +661,39 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleSimulation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""e4ea82dc-9bbe-4872-b8fe-42106b2036f7"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintSpeed"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""98918f15-fcf9-468d-90c0-bdc1d47cf777"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintSpeed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""900c79a2-54e3-4419-ab6d-8eb2e4bfe23a"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintSpeed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -684,6 +726,7 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         m_FreeRoam_Rotate = m_FreeRoam.FindAction("Rotate", throwIfNotFound: true);
         m_FreeRoam_Sprint = m_FreeRoam.FindAction("Sprint", throwIfNotFound: true);
         m_FreeRoam_ToggleSimulation = m_FreeRoam.FindAction("ToggleSimulation", throwIfNotFound: true);
+        m_FreeRoam_SprintSpeed = m_FreeRoam.FindAction("SprintSpeed", throwIfNotFound: true);
     }
 
     ~@SimInput()
@@ -1076,6 +1119,7 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_FreeRoam_Rotate;
     private readonly InputAction m_FreeRoam_Sprint;
     private readonly InputAction m_FreeRoam_ToggleSimulation;
+    private readonly InputAction m_FreeRoam_SprintSpeed;
     /// <summary>
     /// Provides access to input actions defined in input action map "FreeRoam".
     /// </summary>
@@ -1119,6 +1163,10 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "FreeRoam/ToggleSimulation".
         /// </summary>
         public InputAction @ToggleSimulation => m_Wrapper.m_FreeRoam_ToggleSimulation;
+        /// <summary>
+        /// Provides access to the underlying input action "FreeRoam/SprintSpeed".
+        /// </summary>
+        public InputAction @SprintSpeed => m_Wrapper.m_FreeRoam_SprintSpeed;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1169,6 +1217,9 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @ToggleSimulation.started += instance.OnToggleSimulation;
             @ToggleSimulation.performed += instance.OnToggleSimulation;
             @ToggleSimulation.canceled += instance.OnToggleSimulation;
+            @SprintSpeed.started += instance.OnSprintSpeed;
+            @SprintSpeed.performed += instance.OnSprintSpeed;
+            @SprintSpeed.canceled += instance.OnSprintSpeed;
         }
 
         /// <summary>
@@ -1204,6 +1255,9 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @ToggleSimulation.started -= instance.OnToggleSimulation;
             @ToggleSimulation.performed -= instance.OnToggleSimulation;
             @ToggleSimulation.canceled -= instance.OnToggleSimulation;
+            @SprintSpeed.started -= instance.OnSprintSpeed;
+            @SprintSpeed.performed -= instance.OnSprintSpeed;
+            @SprintSpeed.canceled -= instance.OnSprintSpeed;
         }
 
         /// <summary>
@@ -1400,5 +1454,12 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnToggleSimulation(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SprintSpeed" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSprintSpeed(InputAction.CallbackContext context);
     }
 }
