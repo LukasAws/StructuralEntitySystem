@@ -1,13 +1,9 @@
-using System;
-using Entities;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
-using Cursor = UnityEngine.Cursor;
 
-namespace Misc
+namespace Entities.Misc.Input
 {
+    [RequireComponent(typeof(InputValues))]
     public class InputController : MonoBehaviour
     {
         public static InputController Instance { get; private set; }
@@ -31,8 +27,7 @@ namespace Misc
         }
         
         private CameraType _cameraType = CameraType.TopDown;
-        
-        private static int _currentCameraIndex = 0;
+
         [SerializeField]
         private EntityBase friendlyEntity;
         [SerializeField]
@@ -43,7 +38,7 @@ namespace Misc
         [SerializeField]
         private Transform entitiesParent;
 
-        [FormerlySerializedAs("previewGO")] [SerializeField]
+        [SerializeField]
         private GameObject previewGo;
 
         private GameObject _previewObject;
@@ -53,8 +48,6 @@ namespace Misc
 
         private static uint _entityIndex = 0;
         
-        [SerializeField]
-        private float cameraSensitivity = 5f;
 
         private bool sprinting = false;
 
@@ -157,7 +150,7 @@ namespace Misc
         {
             HandlePreviewing();
             
-            float speed = (sprinting ? 15f : 5f) * Time.unscaledDeltaTime;
+            float speed = (sprinting ? InputValues.Instance.GetCameraSprintSpeed() : InputValues.Instance.GetCameraNormalSpeed()) * Time.unscaledDeltaTime;
             
             if(_forwardMomentum != 0)
                 freeRoamCamera.transform.position += freeRoamCamera.transform.forward * (_forwardMomentum * speed);
@@ -171,8 +164,8 @@ namespace Misc
 
         private void RotateCamera()
         {
-            freeRoamCamera.transform.Rotate(Vector3.up, _rotationMomentum.x * Time.unscaledDeltaTime * cameraSensitivity, Space.World);
-            freeRoamCamera.transform.Rotate(Vector3.right, -_rotationMomentum.y * Time.unscaledDeltaTime * cameraSensitivity, Space.Self);
+            freeRoamCamera.transform.Rotate(Vector3.up, _rotationMomentum.x * Time.unscaledDeltaTime * InputValues.Instance.GetCameraSensitivity(), Space.World);
+            freeRoamCamera.transform.Rotate(Vector3.right, -_rotationMomentum.y * Time.unscaledDeltaTime * InputValues.Instance.GetCameraSensitivity(), Space.Self);
         }
 
         private void SwitchToEntity(InputAction.CallbackContext callbackContext)
@@ -209,11 +202,15 @@ namespace Misc
 
         private void SwitchEntity_Increment(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
+            if (thirdCameraDelay + InputValues.Instance.GetCameraSwitchEntityDelay() > Time.realtimeSinceStartup) return;
+
             ++_entityIndex;
             SwitchEntity();
         }
         private void SwitchEntity_Decrement(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
+            if (thirdCameraDelay + InputValues.Instance.GetCameraSwitchEntityDelay() > Time.realtimeSinceStartup) return;
+
             --_entityIndex;
             SwitchEntity();
         }
@@ -295,6 +292,8 @@ namespace Misc
             _hostilityLevel = EntityBase.HostilityLevel.Friendly;
         }
 
+        private float thirdCameraDelay;
+
         private void SwitchCamera(CameraType cameraType)
         {
             _cameraType = cameraType;
@@ -314,6 +313,8 @@ namespace Misc
                     
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
+
+                    thirdCameraDelay = Time.realtimeSinceStartup;
                     
                     if(!thirdPersonCamera.transform.parent && entitiesParent.childCount > 0)
                     {

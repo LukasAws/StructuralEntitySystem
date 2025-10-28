@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Entities.Interfaces;
-using Misc;
+using Entities.Misc.Input;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Entities
 {
