@@ -89,30 +89,33 @@ MonoBehaviour:
   maxHealth: 100
   armor: 0
   healthRegen: 2
-  healthCooldown: 5
-  lowHealthThreshold: 25
+  recoveryTimeLowHealth: 5
+  lowHealthLowerThreshold: 25
+  lowHealthUpperThreshold: 50
   speed: 3
   runSpeed: 6
   stamina: 100
   maxStamina: 100
-  staminaRegen: 15
+  staminaRegen: 10
+  staminaLoss: 3
   staminaCooldown: 5
+  outOfStaminaLowerThreshold: 15
   outOfStaminaUpperThreshold: 50
   attackDamage: 3
   attackRange: 1
   attackCooldown: 0.6
   visibilityDistance: 12
+  knockbackForce: 7
   obstacleDetectionDistance: 2
-  entitiesKilledCount: 0
   experience: 3
+  attackedBy: []
+  entitiesKilledCount: 0
   isOutOfStamina: 0
   isLowHealth: 0
   isMoving: 0
   attackTimestamp: -Infinity
   staminaTimestamp: -Infinity
   healthTimestamp: -Infinity
-  knockbackForce: 7
-  attackedBy: []
   speedBoost: 1.25
   staminaBoost: 1.2
   staminaLossReduction: 0.6

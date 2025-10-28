@@ -44,8 +44,6 @@ namespace Entities
 
         public EntityStats entityStats { get; private set; }
         private Rigidbody _rigidbody;
-        
-        
 
         //------------------------------------------------------------------------------
         
@@ -225,7 +223,7 @@ namespace Entities
                     
                     entityStats.isMoving = true;
                     if (_rigidbody)
-                        _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+                        _rigidbody.MovePosition(transform.position + adjustedMovement);
                     yield return null;
                 }
             }
@@ -267,7 +265,6 @@ namespace Entities
                     EntityBase killedEntity = onAttack?.Invoke();
                     if (killedEntity)
                     {
-                        entityStats.experience = killedEntity.entityStats.experience;
                         entityStats.entitiesKilledCount++;
                         onPursuitEnd?.Invoke(killedEntity);
                         onEscapeEnd?.Invoke(killedEntity);
@@ -293,15 +290,20 @@ namespace Entities
 
                 EntityBase entityEscaped = AreEntitiesInRange(entities);
                 if (entityEscaped)
+                {
                     onEscapeEnd?.Invoke(entityEscaped);
+                    yield return new WaitForFixedUpdate();
+                }
 
                 _escapeDirection = Vector3.zero;
                 foreach (EntityBase entity in entities)
                 {
                     Debug.DrawLine(transform.position, entity.transform.position, Color.darkRed);
-                    _escapeDirection += (transform.position - entity.transform.position).normalized;
+                    _escapeDirection += (transform.position - entity.transform.position);
                 }
                 ObstacleDetection();
+                
+                _escapeDirection.Normalize();
                 
                 
                 Debug.DrawLine(transform.position, transform.position + _escapeDirection.normalized*5, Color.darkRed);
@@ -340,21 +342,21 @@ namespace Entities
             return null;
         }
 
-        protected virtual EntityBase Die(EntityBase byEntity = null)
+        protected virtual EntityBase Die(EntityBase killedBy = null)
         {
             if (transform.childCount > 0) // if there is a camera
             {
                 InputController.Instance.SetNextEntity();
             }
-
-            Destroy(gameObject);
             
-            if (byEntity)
+            if (killedBy)
             {
-                byEntity.entityStats.experience = entityStats.experience;
-                byEntity.AttackTarget = null;
+                killedBy.entityStats.experience += entityStats.experience;
+                killedBy.AttackTarget = null;
+                Destroy(gameObject);
                 return this;
             }
+            Destroy(gameObject);
             return null;
         }
 
@@ -385,7 +387,7 @@ namespace Entities
             RotateTowards(transform.position + direction);
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement); 
+            _rigidbody.MovePosition(transform.position + adjustedMovement); 
             
             entityStats.LoseStamina();
 
@@ -404,7 +406,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+            _rigidbody.MovePosition(transform.position + adjustedMovement);
 
             return movement.magnitude;
         }
@@ -419,7 +421,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+            _rigidbody.MovePosition(transform.position + adjustedMovement);
             if(entityStats.attackedBy.Count > 0) _gEscapeDirection = direction;
 
             entityStats.LoseStamina();
@@ -435,7 +437,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+            _rigidbody.MovePosition(transform.position + adjustedMovement);
             _gEscapeDirection = direction;
 
             return movement.magnitude;
@@ -447,44 +449,48 @@ namespace Entities
 
 #region Utility Methods
         
-        public void GetEntitiesByProximity(float radius, out List<EntityBase> outEntities, bool byProximity) // should be executed only once per second
+        public void GetEntitiesByProximity(float radius, out List<EntityBase> outEntities, bool byProximity)
         {
             outEntities = new();
-            Dictionary<EntityBase, float> entityDistanceDict = new();
-            
+            Collider[] hits = Physics.OverlapSphere(transform.position, radius, LayerMask.GetMask("Entities"));
+
+            if (hits.Length == 0) return;
+
             if (byProximity)
             {
-                foreach (var entityPair in EntityRegistry)
+                float closestDistance = float.MaxValue;
+                EntityBase closest = null;
+
+                foreach (var hit in hits)
                 {
-                    EntityBase entity = entityPair.Value;
-                    if (entity == this) continue;
-                    float distance = GetProximityToEntity(entity);
+                    var entity = hit.GetComponent<EntityBase>();
+                    if (!entity || entity == this) continue;
+
+                    float distance = Vector3.Distance(transform.position, entity.transform.position);
                     if (distance <= radius)
-                        entityDistanceDict.Add(entityPair.Value, distance);
+                    {
+                        outEntities.Add(entity);
+                    }
                 }
-            
-                var sortedDict = from entry in entityDistanceDict orderby entry.Value select entry;
-                if(entityDistanceDict.Count != 0) outEntities.Add(sortedDict.First().Key);
-                return;
             }
-            
-            foreach (var entityPair in EntityRegistry)
+            else
             {
-                EntityBase entity = entityPair.Value;
-                if (entity == this) continue;
-            
-                float distance = Vector3.Distance(transform.position, entity.transform.position);
-                if (distance <= radius) 
-                    outEntities.Add(entity);
+                foreach (var hit in hits)
+                {
+                    var entity = hit.GetComponent<EntityBase>();
+                    if (entity != null && entity != this)
+                        outEntities.Add(entity);
+                }
             }
         }
+
         
         protected virtual bool FindEntityToAttack(List<EntityBase> entities, out EntityBase target, params Type[] types)
         {
             target = null;
-            foreach (var entity in entities)
+            foreach (var type in types)
             {
-                foreach (var type in types)
+                foreach (var entity in entities)
                     if (type.IsAssignableFrom(entity.GetType()) 
                         && !Physics.Raycast(transform.position, entity.transform.position - transform.position , out RaycastHit hit, GetProximityToEntity(entity), LayerMask.GetMask("Environment", "Obstacles"))) // this, I needed help from ChatGPT
                     {
@@ -525,18 +531,19 @@ namespace Entities
         public void RotateTowards(Vector3 targetPosition)
         {
             Vector3 direction = targetPosition - transform.position;
-            if (direction.sqrMagnitude <= 0.01f) return;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            
         }
 
         private bool ObstacleDetection()
         {
-            Collider[] obstacles = new Collider[7];
+            Collider[] obstacles = new Collider[10];
             Physics.OverlapSphereNonAlloc(transform.position, entityStats.obstacleDetectionDistance, obstacles, LayerMask.GetMask("Environment", "Obstacles"));
             
-            if (obstacles.Length == 0) return false;
-            
+            if (!obstacles[0]) return false;
+
+            List<Collider> list = obstacles.ToList();
             if(entityStats.attackedBy.Count > 0)
                 foreach (Collider obstacle in obstacles)
                 {
