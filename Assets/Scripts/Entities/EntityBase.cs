@@ -345,9 +345,7 @@ namespace Entities
         protected virtual EntityBase Die(EntityBase killedBy = null)
         {
             if (transform.childCount > 0) // if there is a camera
-            {
-                InputController.Instance.SetNextEntity();
-            }
+                InputController.Instance.SetNextEntity(true);
             
             if (killedBy)
             {

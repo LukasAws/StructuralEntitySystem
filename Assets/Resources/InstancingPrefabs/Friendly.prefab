@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36044d81c5e06a6488c384d762cdc8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.SpeciesStats.ChickenStats
-  hostilityLevel: 1
+  hostilityLevel: 0
   health: 100
   maxHealth: 100
   armor: 0

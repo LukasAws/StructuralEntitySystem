@@ -50,13 +50,12 @@ namespace Entities.Misc
 
         private GameObject _previewObject;
 
-        private bool _previewing = false;
-        private bool _previewingCancelled = false;
+        private bool _previewing;
+        private bool _previewingCancelled;
 
-        private static uint _entityIndex = 0;
+        private static uint _entityIndex;
 
-        private bool sprinting = false;
-
+        private bool sprinting;
         private float _forwardMomentum;
         private float _rightMomentum;
         private float _upMomentum;
@@ -135,18 +134,6 @@ namespace Entities.Misc
                 RotateCamera();
         }
 
-        private void OnGUI()
-        {
-            GUIStyle style = new GUIStyle()
-            {
-                fontSize = 20,
-                alignment = TextAnchor.MiddleCenter,
-                normal = {textColor = Color.white}
-            };
-            if(thirdPersonCamera.isActiveAndEnabled)
-                GUILayout.Label($"Entity Health: {thirdPersonCamera.transform.parent.GetComponent<EntityStats>().health}", style);
-        }
-
         #endregion
 
         #region Camera Management
@@ -154,6 +141,10 @@ namespace Entities.Misc
         private void SwitchCamera(CameraType cameraType)
         {
             _cameraType = cameraType;
+            
+            topDownCamera.gameObject.SetActive(_cameraType == CameraType.TopDown);
+            thirdPersonCamera.gameObject.SetActive(_cameraType == CameraType.ThirdPerson);
+            freeRoamCamera.gameObject.SetActive(_cameraType == CameraType.FreeRoam);
             
             switch (cameraType)
             {
@@ -196,10 +187,6 @@ namespace Entities.Misc
                     _inputActions.FreeRoam.Enable();
                     break;
             }
-            
-            topDownCamera.gameObject.SetActive(_cameraType == CameraType.TopDown);
-            thirdPersonCamera.gameObject.SetActive(_cameraType == CameraType.ThirdPerson);
-            freeRoamCamera.gameObject.SetActive(_cameraType == CameraType.FreeRoam);
         }
         
         private float _pitch; 
@@ -232,7 +219,7 @@ namespace Entities.Misc
         {
             uint entityCount = (uint)entitiesParent.childCount;
 
-            if (entityCount == 0)
+            if (entityCount <= 1)
                 return;
 
             _entityIndex %= entityCount;
@@ -281,8 +268,11 @@ namespace Entities.Misc
             }
         }
 
-        public void SetNextEntity()
+        public void SetNextEntity(bool hasDied = false)
         {
+            if (entitiesParent.childCount <= 1 && hasDied)
+                thirdPersonCamera.transform.SetParent(null);
+            
             _entityIndex++;
             SwitchEntity();
         }

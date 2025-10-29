@@ -58,7 +58,7 @@ namespace Entities.Hostility
             }
         }
 
-        protected void FixedUpdate()
+        protected new void FixedUpdate()
         {
             if (!AttackTarget)
             {
