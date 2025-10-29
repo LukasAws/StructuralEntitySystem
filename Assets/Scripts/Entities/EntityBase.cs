@@ -223,7 +223,7 @@ namespace Entities
                     
                     entityStats.isMoving = true;
                     if (_rigidbody)
-                        _rigidbody.MovePosition(transform.position + adjustedMovement);
+                        _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
                     yield return null;
                 }
             }
@@ -387,7 +387,7 @@ namespace Entities
             RotateTowards(transform.position + direction);
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(transform.position + adjustedMovement); 
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement); 
             
             entityStats.LoseStamina();
 
@@ -406,7 +406,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(transform.position + adjustedMovement);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
 
             return movement.magnitude;
         }
@@ -421,7 +421,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(transform.position + adjustedMovement);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
             if(entityStats.attackedBy.Count > 0) _gEscapeDirection = direction;
 
             entityStats.LoseStamina();
@@ -437,7 +437,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(transform.position + adjustedMovement);
+            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
             _gEscapeDirection = direction;
 
             return movement.magnitude;
@@ -458,8 +458,6 @@ namespace Entities
 
             if (byProximity)
             {
-                float closestDistance = float.MaxValue;
-                EntityBase closest = null;
 
                 foreach (var hit in hits)
                 {
