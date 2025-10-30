@@ -61,15 +61,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ToggleSimulation",
-                    "type": "Button",
-                    "id": "24eb3aca-772d-4c5c-b464-88d487664b63",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "CancelInstaniation",
                     "type": "Button",
                     "id": "afb780d2-b251-420c-95dd-68945e269767",
@@ -181,17 +172,6 @@
                 },
                 {
                     "name": "",
-                    "id": "74dffe8d-69c4-4732-bbc6-de82d7f3c14b",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleSimulation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "cb0731b3-9168-4e95-9678-deb98267446c",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -233,15 +213,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ToggleSimulation",
-                    "type": "Button",
-                    "id": "7f4d7d77-c599-4804-aeda-08ce2bc4b5c6",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -275,17 +246,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchEntityDec",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ec32a3aa-aa2d-494c-b015-05731ac8c20e",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleSimulation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -356,15 +316,6 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ToggleSimulation",
-                    "type": "Button",
-                    "id": "bd2f96b5-d35c-4f33-8e4f-16e8c45f0a35",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -562,17 +513,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b018eb8b-b580-46cb-a932-fedef9eea4d8",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleSimulation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

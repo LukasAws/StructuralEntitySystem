@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Zombies.SandZombie
   attackTargetPublic: {fileID: 0}
-  typesToAttack: 6
+  typesToAttack: 3

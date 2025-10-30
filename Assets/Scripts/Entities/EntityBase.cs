@@ -183,7 +183,7 @@ namespace Entities
         // if all pursuit values are 'false' the entities will wander
         protected virtual IEnumerator Wander()
         {
-
+            entityStats.isMoving = false;
             float pauseEndTime = 0;
             
             while (true)
@@ -218,13 +218,8 @@ namespace Entities
                     
                     RotateTowards(transform.position + randomDirection);
 
-                    Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
-                    Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-                    
-                    entityStats.isMoving = true;
-                    if (_rigidbody)
-                        _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
-                    yield return null;
+                    WalkInDirection(randomDirection);
+                    yield return new WaitForFixedUpdate();
                 }
             }
         }
@@ -372,20 +367,20 @@ namespace Entities
 
         protected virtual float RunToFrom(EntityBase entity, bool toEntity = true) // Runs either toward the entity or away from it 
         {
-            entityStats.isMoving = true;
-
             if (entityStats.isOutOfStamina) return WalkToFrom(entity, toEntity);
 
+            entityStats.isMoving = true;
+
             Vector3 direction = toEntity ? 
-                (entity.transform.position - transform.position).normalized : 
-                (transform.position - entity.transform.position).normalized;
+                (entity.transform.position - transform.position) : 
+                (transform.position - entity.transform.position);
             if(!toEntity)
                 _gEscapeDirection = direction;
 
             RotateTowards(transform.position + direction);
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement); 
+            _rigidbody.MovePosition(transform.position + adjustedMovement); 
             
             entityStats.LoseStamina();
 
@@ -404,7 +399,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+            _rigidbody.MovePosition(transform.position + adjustedMovement);
 
             return movement.magnitude;
         }
@@ -415,11 +410,11 @@ namespace Entities
             
             entityStats.isMoving = true;
 
-            RotateTowards(transform.position + direction); 
+            RotateTowards(transform.position + direction.normalized); 
 
             Vector3 movement = transform.forward * (entityStats.runSpeed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+            _rigidbody.MovePosition(transform.position + adjustedMovement);
             if(entityStats.attackedBy.Count > 0) _gEscapeDirection = direction;
 
             entityStats.LoseStamina();
@@ -435,7 +430,7 @@ namespace Entities
 
             Vector3 movement = transform.forward * (entityStats.speed * Time.deltaTime);
             Vector3 adjustedMovement = new Vector3(movement.x, 0, movement.z);
-            _rigidbody.MovePosition(_rigidbody.position + adjustedMovement);
+            _rigidbody.MovePosition(transform.position + adjustedMovement);
             _gEscapeDirection = direction;
 
             return movement.magnitude;
@@ -528,7 +523,7 @@ namespace Entities
         {
             Vector3 direction = targetPosition - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
             
         }
 

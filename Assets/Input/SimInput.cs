@@ -147,15 +147,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ToggleSimulation"",
-                    ""type"": ""Button"",
-                    ""id"": ""24eb3aca-772d-4c5c-b464-88d487664b63"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""CancelInstaniation"",
                     ""type"": ""Button"",
                     ""id"": ""afb780d2-b251-420c-95dd-68945e269767"",
@@ -267,17 +258,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""74dffe8d-69c4-4732-bbc6-de82d7f3c14b"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleSimulation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""cb0731b3-9168-4e95-9678-deb98267446c"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -319,15 +299,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ToggleSimulation"",
-                    ""type"": ""Button"",
-                    ""id"": ""7f4d7d77-c599-4804-aeda-08ce2bc4b5c6"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -361,17 +332,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchEntityDec"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ec32a3aa-aa2d-494c-b015-05731ac8c20e"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleSimulation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -442,15 +402,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ToggleSimulation"",
-                    ""type"": ""Button"",
-                    ""id"": ""bd2f96b5-d35c-4f33-8e4f-16e8c45f0a35"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
@@ -652,17 +603,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""b018eb8b-b580-46cb-a932-fedef9eea4d8"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleSimulation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""1D Axis"",
                     ""id"": ""e4ea82dc-9bbe-4872-b8fe-42106b2036f7"",
                     ""path"": ""1DAxis"",
@@ -708,14 +648,12 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         m_TopDownCamera_ToHostile = m_TopDownCamera.FindAction("ToHostile", throwIfNotFound: true);
         m_TopDownCamera_MousePos = m_TopDownCamera.FindAction("MousePos", throwIfNotFound: true);
         m_TopDownCamera_Instantiate = m_TopDownCamera.FindAction("Instantiate", throwIfNotFound: true);
-        m_TopDownCamera_ToggleSimulation = m_TopDownCamera.FindAction("ToggleSimulation", throwIfNotFound: true);
         m_TopDownCamera_CancelInstaniation = m_TopDownCamera.FindAction("CancelInstaniation", throwIfNotFound: true);
         // ThirdPerson
         m_ThirdPerson = asset.FindActionMap("ThirdPerson", throwIfNotFound: true);
         m_ThirdPerson_SwitchCamera = m_ThirdPerson.FindAction("SwitchCamera", throwIfNotFound: true);
         m_ThirdPerson_SwitchEntityInc = m_ThirdPerson.FindAction("SwitchEntityInc", throwIfNotFound: true);
         m_ThirdPerson_SwitchEntityDec = m_ThirdPerson.FindAction("SwitchEntityDec", throwIfNotFound: true);
-        m_ThirdPerson_ToggleSimulation = m_ThirdPerson.FindAction("ToggleSimulation", throwIfNotFound: true);
         // FreeRoam
         m_FreeRoam = asset.FindActionMap("FreeRoam", throwIfNotFound: true);
         m_FreeRoam_SwitchCamera = m_FreeRoam.FindAction("SwitchCamera", throwIfNotFound: true);
@@ -725,7 +663,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         m_FreeRoam_SwitchToEntity = m_FreeRoam.FindAction("SwitchToEntity", throwIfNotFound: true);
         m_FreeRoam_Rotate = m_FreeRoam.FindAction("Rotate", throwIfNotFound: true);
         m_FreeRoam_Sprint = m_FreeRoam.FindAction("Sprint", throwIfNotFound: true);
-        m_FreeRoam_ToggleSimulation = m_FreeRoam.FindAction("ToggleSimulation", throwIfNotFound: true);
         m_FreeRoam_SprintSpeed = m_FreeRoam.FindAction("SprintSpeed", throwIfNotFound: true);
     }
 
@@ -815,7 +752,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_TopDownCamera_ToHostile;
     private readonly InputAction m_TopDownCamera_MousePos;
     private readonly InputAction m_TopDownCamera_Instantiate;
-    private readonly InputAction m_TopDownCamera_ToggleSimulation;
     private readonly InputAction m_TopDownCamera_CancelInstaniation;
     /// <summary>
     /// Provides access to input actions defined in input action map "TopDownCamera".
@@ -852,10 +788,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "TopDownCamera/Instantiate".
         /// </summary>
         public InputAction @Instantiate => m_Wrapper.m_TopDownCamera_Instantiate;
-        /// <summary>
-        /// Provides access to the underlying input action "TopDownCamera/ToggleSimulation".
-        /// </summary>
-        public InputAction @ToggleSimulation => m_Wrapper.m_TopDownCamera_ToggleSimulation;
         /// <summary>
         /// Provides access to the underlying input action "TopDownCamera/CancelInstaniation".
         /// </summary>
@@ -904,9 +836,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @Instantiate.started += instance.OnInstantiate;
             @Instantiate.performed += instance.OnInstantiate;
             @Instantiate.canceled += instance.OnInstantiate;
-            @ToggleSimulation.started += instance.OnToggleSimulation;
-            @ToggleSimulation.performed += instance.OnToggleSimulation;
-            @ToggleSimulation.canceled += instance.OnToggleSimulation;
             @CancelInstaniation.started += instance.OnCancelInstaniation;
             @CancelInstaniation.performed += instance.OnCancelInstaniation;
             @CancelInstaniation.canceled += instance.OnCancelInstaniation;
@@ -939,9 +868,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @Instantiate.started -= instance.OnInstantiate;
             @Instantiate.performed -= instance.OnInstantiate;
             @Instantiate.canceled -= instance.OnInstantiate;
-            @ToggleSimulation.started -= instance.OnToggleSimulation;
-            @ToggleSimulation.performed -= instance.OnToggleSimulation;
-            @ToggleSimulation.canceled -= instance.OnToggleSimulation;
             @CancelInstaniation.started -= instance.OnCancelInstaniation;
             @CancelInstaniation.performed -= instance.OnCancelInstaniation;
             @CancelInstaniation.canceled -= instance.OnCancelInstaniation;
@@ -985,7 +911,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_ThirdPerson_SwitchCamera;
     private readonly InputAction m_ThirdPerson_SwitchEntityInc;
     private readonly InputAction m_ThirdPerson_SwitchEntityDec;
-    private readonly InputAction m_ThirdPerson_ToggleSimulation;
     /// <summary>
     /// Provides access to input actions defined in input action map "ThirdPerson".
     /// </summary>
@@ -1009,10 +934,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "ThirdPerson/SwitchEntityDec".
         /// </summary>
         public InputAction @SwitchEntityDec => m_Wrapper.m_ThirdPerson_SwitchEntityDec;
-        /// <summary>
-        /// Provides access to the underlying input action "ThirdPerson/ToggleSimulation".
-        /// </summary>
-        public InputAction @ToggleSimulation => m_Wrapper.m_ThirdPerson_ToggleSimulation;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1048,9 +969,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @SwitchEntityDec.started += instance.OnSwitchEntityDec;
             @SwitchEntityDec.performed += instance.OnSwitchEntityDec;
             @SwitchEntityDec.canceled += instance.OnSwitchEntityDec;
-            @ToggleSimulation.started += instance.OnToggleSimulation;
-            @ToggleSimulation.performed += instance.OnToggleSimulation;
-            @ToggleSimulation.canceled += instance.OnToggleSimulation;
         }
 
         /// <summary>
@@ -1071,9 +989,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @SwitchEntityDec.started -= instance.OnSwitchEntityDec;
             @SwitchEntityDec.performed -= instance.OnSwitchEntityDec;
             @SwitchEntityDec.canceled -= instance.OnSwitchEntityDec;
-            @ToggleSimulation.started -= instance.OnToggleSimulation;
-            @ToggleSimulation.performed -= instance.OnToggleSimulation;
-            @ToggleSimulation.canceled -= instance.OnToggleSimulation;
         }
 
         /// <summary>
@@ -1118,7 +1033,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_FreeRoam_SwitchToEntity;
     private readonly InputAction m_FreeRoam_Rotate;
     private readonly InputAction m_FreeRoam_Sprint;
-    private readonly InputAction m_FreeRoam_ToggleSimulation;
     private readonly InputAction m_FreeRoam_SprintSpeed;
     /// <summary>
     /// Provides access to input actions defined in input action map "FreeRoam".
@@ -1159,10 +1073,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "FreeRoam/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_FreeRoam_Sprint;
-        /// <summary>
-        /// Provides access to the underlying input action "FreeRoam/ToggleSimulation".
-        /// </summary>
-        public InputAction @ToggleSimulation => m_Wrapper.m_FreeRoam_ToggleSimulation;
         /// <summary>
         /// Provides access to the underlying input action "FreeRoam/SprintSpeed".
         /// </summary>
@@ -1214,9 +1124,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @ToggleSimulation.started += instance.OnToggleSimulation;
-            @ToggleSimulation.performed += instance.OnToggleSimulation;
-            @ToggleSimulation.canceled += instance.OnToggleSimulation;
             @SprintSpeed.started += instance.OnSprintSpeed;
             @SprintSpeed.performed += instance.OnSprintSpeed;
             @SprintSpeed.canceled += instance.OnSprintSpeed;
@@ -1252,9 +1159,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @ToggleSimulation.started -= instance.OnToggleSimulation;
-            @ToggleSimulation.performed -= instance.OnToggleSimulation;
-            @ToggleSimulation.canceled -= instance.OnToggleSimulation;
             @SprintSpeed.started -= instance.OnSprintSpeed;
             @SprintSpeed.performed -= instance.OnSprintSpeed;
             @SprintSpeed.canceled -= instance.OnSprintSpeed;
@@ -1341,13 +1245,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInstantiate(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "ToggleSimulation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleSimulation(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "CancelInstaniation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1383,13 +1280,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSwitchEntityDec(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ToggleSimulation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleSimulation(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "FreeRoam" which allows adding and removing callbacks.
@@ -1447,13 +1337,6 @@ public partial class @SimInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ToggleSimulation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleSimulation(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "SprintSpeed" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Entities.Settings;
 
 namespace Entities.Misc
 {
@@ -15,6 +16,7 @@ namespace Entities.Misc
         #region Fields
         
         SimInput _inputActions;
+        GlobalInputActions _globalActions;
 
         [SerializeField]
         private Camera topDownCamera;
@@ -70,24 +72,28 @@ namespace Entities.Misc
         private void Awake()
         {
             _inputActions = new SimInput();
+            _globalActions = new GlobalInputActions();
+
+            _globalActions.Enable();
+
+            _globalActions.Global.Escape.performed += EscapeAction;
+            _globalActions.Global.ToggleSimulation.performed += ToggleSimulation;
+            _globalActions.Global.ChangeSimulationSpeed.performed += ctx => ChangeSimulationSpeed(ctx.ReadValue<float>());
 
             _inputActions.TopDownCamera.SwitchCamera.performed += _ => SwitchCamera(CameraType.ThirdPerson);
             _inputActions.TopDownCamera.ToFriendly.performed += SwitchToFriendly;
             _inputActions.TopDownCamera.ToNeutral.performed += SwitchToNeutral;
             _inputActions.TopDownCamera.ToHostile.performed += SwitchToHostile;
-            _inputActions.TopDownCamera.ToggleSimulation.performed += ToggleSimulation;
             _inputActions.TopDownCamera.Instantiate.performed += InstantiateEntity;
             _inputActions.TopDownCamera.Instantiate.canceled += InstantiateEntity;
             _inputActions.TopDownCamera.CancelInstaniation.performed += CancelInstantiation;
             _inputActions.TopDownCamera.MousePos.performed += ctx => _mousePos = ctx.ReadValue<Vector2>();
 
             _inputActions.ThirdPerson.SwitchCamera.performed += _ => SwitchCamera(CameraType.FreeRoam);
-            _inputActions.ThirdPerson.ToggleSimulation.performed += ToggleSimulation;
             _inputActions.ThirdPerson.SwitchEntityInc.performed += SwitchEntity_Increment;
             _inputActions.ThirdPerson.SwitchEntityDec.performed += SwitchEntity_Decrement;
             
             _inputActions.FreeRoam.SwitchCamera.performed += _ => SwitchCamera(CameraType.TopDown);
-            _inputActions.FreeRoam.ToggleSimulation.performed += ToggleSimulation;
             _inputActions.FreeRoam.SwitchToEntity.performed += SwitchToEntity;
             _inputActions.FreeRoam.Forward.performed += ctx => _forwardMomentum = ctx.ReadValue<float>();
             _inputActions.FreeRoam.Right.performed += ctx => _rightMomentum = ctx.ReadValue<float>();
@@ -102,6 +108,14 @@ namespace Entities.Misc
             _inputActions.FreeRoam.Rotate.canceled += _ => _rotationMomentum = Vector2.zero;
             _inputActions.FreeRoam.Sprint.canceled += _ => sprinting = false;
         }
+
+        private void EscapeAction(InputAction.CallbackContext obj)
+        {
+            // Open/close escape panel
+
+        }
+
+        private void ChangeSimulationSpeed(float value) => SettingsValues.Instance.simulationSpeed = Time.timeScale = Mathf.Clamp(Time.timeScale + value * 0.1f, SettingsValues.Instance.minSimulationSpeed, SettingsValues.Instance.maxSimulationSpeed);
 
         private void OnEnable()
         {
@@ -189,20 +203,17 @@ namespace Entities.Misc
             }
         }
         
-        private float _pitch; 
-        private float _yaw;   
 
         private void RotateCamera() // needed help from chatgpt to implement pitch and yaw clamping
         {
             float sensitivity = InputValues.Instance.GetCameraSensitivity();
-            float deltaTime = Time.unscaledDeltaTime;
 
-            _yaw += _rotationMomentum.x * deltaTime * sensitivity;
-            _pitch -= _rotationMomentum.y * deltaTime * sensitivity;
+            var _yaw = _rotationMomentum.x * Time.unscaledDeltaTime * sensitivity;
+            var _pitch = _rotationMomentum.y * Time.unscaledDeltaTime * sensitivity;
 
             _pitch = Mathf.Clamp(_pitch, -90f, 90f);
 
-            freeRoamCamera.transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+            freeRoamCamera.transform.rotation = Quaternion.Euler(freeRoamCamera.transform.eulerAngles.x - _pitch, freeRoamCamera.transform.eulerAngles.y + _yaw, 0f);
         }
 
         private void SprintSpeedBoostChange(float delta)
@@ -394,7 +405,14 @@ namespace Entities.Misc
 
         private void ToggleSimulation(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
-            Time.timeScale = 1 - Time.timeScale;
+            if(Time.timeScale > 0)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = SettingsValues.Instance.simulationSpeed;
+            }
         }
 
         #endregion
