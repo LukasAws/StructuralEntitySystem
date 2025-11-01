@@ -1,4 +1,4 @@
-namespace Entities.Hostility.Interfaces
+namespace Entities.Interfaces.Hostility
 {
     public interface IHostileEntity : IEntityHostility<EntityBase>
     {

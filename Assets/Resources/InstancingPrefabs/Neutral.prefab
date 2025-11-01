@@ -62,17 +62,17 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8214226836091847871}
+      addedObject: {fileID: -1777123292805755606}
     - targetCorrespondingSourceObject: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1881444917836313931}
+      addedObject: {fileID: 6743639344180385083}
   m_SourcePrefab: {fileID: 100100000, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
 --- !u!1 &6115405582351929276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6687449104118909546, guid: 882d4d8c015e5b24e9411b260d2bcfc1, type: 3}
   m_PrefabInstance: {fileID: 581210086891062742}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-8214226836091847871
+--- !u!114 &-1777123292805755606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,9 +81,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6115405582351929276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948b8ea7e494c9e45bbcfddf13168065, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e3066d6ecf7b524386bb6f728bcec71, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entities.SpeciesStats.DogStats
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.SpeciesStats.HumanStats
   hostilityLevel: 1
   health: 100
   maxHealth: 100
@@ -96,12 +96,12 @@ MonoBehaviour:
   runSpeed: 6
   stamina: 100
   maxStamina: 100
-  staminaRegen: 10
+  staminaRegen: 5
   staminaLoss: 3
   staminaCooldown: 5
   outOfStaminaLowerThreshold: 15
-  outOfStaminaUpperThreshold: 50
-  attackDamage: 2
+  outOfStaminaUpperThreshold: 65
+  attackDamage: 5
   attackRange: 1
   attackCooldown: 0.6
   visibilityDistance: 10
@@ -119,7 +119,7 @@ MonoBehaviour:
   speedBoost: 1.25
   staminaBoost: 1.2
   staminaLossReduction: 0.6
---- !u!114 &1881444917836313931
+--- !u!114 &6743639344180385083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6115405582351929276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fccd013e14ca3241ba34cfa1a3d80ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b3fb76e800eae84383db83b907c2105, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Dogs.Corgi
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.Species.Humans.Male
   attackTargetPublic: {fileID: 0}
+  m_speed: []

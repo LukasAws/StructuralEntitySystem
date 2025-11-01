@@ -62,6 +62,8 @@ namespace Entities
 
 
         [Header("Misc")]
+        public float matingTime = 5f;
+        public float matingCooldown = 20f;
         public float obstacleDetectionDistance = 2f;
         public float experience = 3f; // no max
         public List<EntityBase> attackedBy = new List<EntityBase>();
@@ -75,6 +77,7 @@ namespace Entities
         public float attackTimestamp = -Mathf.Infinity; // last attack time
         public float staminaTimestamp = -Mathf.Infinity; // last stamina change time
         public float healthTimestamp = -Mathf.Infinity; // last health change time
+        public float matingTimestamp = -Mathf.Infinity;
         
         //-----------------------------------------------------------------------------------
         

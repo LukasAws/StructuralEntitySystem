@@ -1,6 +1,6 @@
+using Settings;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Entities.Settings;
 
 namespace Entities.Misc
 {
@@ -302,7 +302,7 @@ namespace Entities.Misc
         {
             if (!_previewing) return;
             
-            if (_previewObject == null)
+            if (!_previewObject)
             {
                 _previewObject = Instantiate(previewGo, null, true);
                 var renderer = _previewObject.GetComponent<MeshRenderer>();

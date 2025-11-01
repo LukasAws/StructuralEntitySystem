@@ -10,3 +10,24 @@
 
 .individual-option {
 }
+
+.unity-button:hover {
+    background-color: rgb(255, 250, 171);
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.unity-button {
+    background-color: rgba(255, 250, 171, 0.75);
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.unity-button:checked {
+    background-color: rgba(141, 138, 94, 0.75);
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}

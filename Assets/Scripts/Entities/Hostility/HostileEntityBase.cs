@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Entities.Hostility.Interfaces;
+using Entities.Interfaces.Hostility;
 using UnityEngine;
 
 namespace Entities.Hostility
@@ -15,6 +15,7 @@ namespace Entities.Hostility
             Neutral = 2,
             Hostile = 4,
             Explosive = 8,
+            All = Friendly | Neutral | Hostile | Explosive
         }
 
         public TypesToAttack typesToAttack;

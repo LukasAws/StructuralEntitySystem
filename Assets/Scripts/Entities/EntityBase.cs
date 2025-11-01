@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Entities.Hostility.Interfaces;
+using Entities.Interfaces.Hostility;
 using Entities.Misc;
 using UnityEngine;
 
@@ -161,6 +161,7 @@ namespace Entities
 
         protected void FixedUpdate() // the hierarchy of actions matters here
         {
+            
             attackTargetPublic = AttackTarget;
             
             if(transform.position.y <= -20)
@@ -314,7 +315,7 @@ namespace Entities
 
         //------------------------------------------------------------------------------
         
-#region Attack Methods
+#region Entity Behavior
 
         public abstract void HandleAttack(EntityBase attackingEntity);
 

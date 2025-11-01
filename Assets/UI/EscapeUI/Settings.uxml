@@ -1,12 +1,33 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/ComponentAlterations.uss?fileID=7433441132597879392&amp;guid=e97c8981ffbe0634db8935bfe173a003&amp;type=3#ComponentAlterations" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:Label text="Simulation Settings" name="Label" style="align-self: center; font-size: 20%;" />
-        <ui:Slider label="Simulation Speed" value="38.41" show-input-field="true" high-value="100" direction="Horizontal" inverted="false" />
-        <ui:Label text="Spawn Settings" style="align-self: center; font-size: 20%;" />
-        <ui:Toggle enabled="true" text="Enable Auto Spawning" language-direction="LTR" style="flex-direction: row;" />
-        <ui:Toggle enabled="true" text="Enable Mating" language-direction="LTR" style="flex-direction: row;" />
-        <ui:Slider label="Spawn Speed" value="42" high-value="100" enabled="false" direction="Horizontal" fill="false" show-input-field="true" />
-        <ui:EnumField label="Enum" value="Friendly" type="Entities.Hostility.HostileEntityBase+TypesToAttack, Assembly-CSharp" include-obsolete-values="false" />
+    <Style src="project://database/Assets/UI/Stylesheets/SliderCommonStyling.uss?fileID=7433441132597879392&amp;guid=e97c8981ffbe0634db8935bfe173a003&amp;type=3#SliderCommonStyling" />
+    <Style src="project://database/Assets/UI/Stylesheets/CommonComponentStyling.uss?fileID=7433441132597879392&amp;guid=d2db1440da20ee540bad43db2725c247&amp;type=3#CommonComponentStyling" />
+    <Style src="project://database/Assets/UI/Stylesheets/ToggleCommonStyling.uss?fileID=7433441132597879392&amp;guid=b404d37fbb137a74eb6265be517d2305&amp;type=3#ToggleCommonStyling" />
+    <ui:VisualElement data-source-type="Settings.SettingsValues, Assembly-CSharp" name="OptionsContainer" style="flex-grow: 1;">
+        <ui:VisualElement name="SpawnSettings" style="align-items: stretch; justify-content: space-around; align-self: stretch;">
+            <ui:Label text="Spawn Settings" name="SpawnHeader" style="align-self: center; font-size: 20%; -unity-font-style: bold;" />
+            <ui:Toggle label="Enable Auto Spawning" name="AutoSpawning" value="false" style="width: 90%; overflow: hidden;" />
+            <ui:Toggle enabled="true" language-direction="LTR" label="Enable Mating" name="Mating" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SimSettings">
+            <ui:Label text="Simulation Settings" name="SimHeader" style="align-self: center; font-size: 20%; -unity-font-style: bold;" />
+            <ui:Slider label="Simulation Speed" value="5.05" show-input-field="true" high-value="5" name="SimSpeed" page-size="0.75" enabled="true" style="min-height: 20px; flex-direction: row; justify-content: center; align-self: center; width: 90%; align-items: center; align-content: center; overflow: visible; height: 20px;">
+                <Bindings>
+                    <ui:DataBinding property="lowValue" data-source-path="minSimulationSpeed" binding-mode="ToTarget" />
+                    <ui:DataBinding property="highValue" data-source-path="maxSimulationSpeed" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Slider>
+            <ui:Slider label="Simulation Speed" value="5.05" show-input-field="true" high-value="5" name="SimSpeed" page-size="0.75" enabled="true" style="min-height: 20px; flex-direction: row; justify-content: center; align-self: center; width: 90%; align-items: center; align-content: center; overflow: visible; height: 20px;">
+                <Bindings>
+                    <ui:DataBinding property="lowValue" data-source-path="minSimulationSpeed" binding-mode="ToTarget" />
+                    <ui:DataBinding property="highValue" data-source-path="maxSimulationSpeed" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Slider>
+            <ui:Slider label="Simulation Speed" value="5.05" show-input-field="true" high-value="5" name="SimSpeed" page-size="0.75" enabled="true" style="min-height: 20px; flex-direction: row; justify-content: center; align-self: center; width: 90%; align-items: center; align-content: center; overflow: visible; height: 20px;">
+                <Bindings>
+                    <ui:DataBinding property="lowValue" data-source-path="minSimulationSpeed" binding-mode="ToTarget" />
+                    <ui:DataBinding property="highValue" data-source-path="maxSimulationSpeed" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Slider>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Entities.Settings
+namespace Settings
 {
     public class SettingsManager : MonoBehaviour // script where all settings are managed through UI
     {

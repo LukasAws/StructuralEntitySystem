@@ -1,4 +1,4 @@
-using Entities.Hostility.Interfaces;
+using Entities.Interfaces.Hostility;
 
 namespace Entities.Hostility
 {

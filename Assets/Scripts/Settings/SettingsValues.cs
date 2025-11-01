@@ -1,8 +1,7 @@
-using UnityEngine;
 using Entities.Hostility;
-using Unity.VisualScripting;
+using UnityEngine;
 
-namespace Entities.Settings
+namespace Settings
 {
     [HideInInspector]
     public class SettingsValues : MonoBehaviour
@@ -16,6 +15,7 @@ namespace Entities.Settings
         public float simulationSpeed = 1.0f;
         public float minSimulationSpeed = 0.1f;
         public bool enableAutoSpawning = true;
+        public bool enableMating = true;
         public int autoSpawnIntervalSeconds = 10; //nested under enableAutoSpawning
 
         //Spawning
