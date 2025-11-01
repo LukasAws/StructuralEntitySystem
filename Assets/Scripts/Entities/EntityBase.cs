@@ -181,7 +181,6 @@ namespace Entities
         
 #region Entity Logic
 
-        // if all pursuit values are 'false' the entities will wander
         protected virtual IEnumerator Wander()
         {
             entityStats.isMoving = false;
@@ -201,7 +200,6 @@ namespace Entities
                     yield return null; 
                 }
                 
-                
                 float walkDuration = UnityEngine.Random.Range(2f, 5f);
                 float walkEndTime = Time.time + walkDuration;
                 
@@ -216,7 +214,6 @@ namespace Entities
                 
                 while (Time.time < walkEndTime)
                 {
-                    
                     RotateTowards(transform.position + randomDirection);
 
                     WalkInDirection(randomDirection);
@@ -510,7 +507,7 @@ namespace Entities
             
             foreach (EntityBase entity in entities)
             {
-                if (GetProximityToEntity(entity) > entityStats.visibilityDistance*2f)
+                if (entity && GetProximityToEntity(entity) > entityStats.visibilityDistance*2f)
                     return entity;
             }
 
@@ -524,7 +521,7 @@ namespace Entities
         {
             Vector3 direction = targetPosition - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+            transform.rotation = targetRotation;
             
         }
 

@@ -36,8 +36,6 @@ namespace Settings
             LoadValues();
         }
 
-
-
         private void OnDisable()
         {
             SaveValues();
@@ -47,9 +45,15 @@ namespace Settings
 
         #region Methods
 
-        public void LoadValues() { }
+        public void LoadValues()
+        {
+            
+        }
 
-        public void SaveValues() { }
+        public void SaveValues()
+        {
+            
+        }
 
         #endregion
     }

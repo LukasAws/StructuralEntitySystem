@@ -62,6 +62,9 @@ namespace Entities.Misc
         private float _rightMomentum;
         private float _upMomentum;
         private Vector2 _rotationMomentum;
+        
+        private float _pitch; 
+        private float _yaw;   
 
         private float thirdCameraDelay;
         
@@ -76,7 +79,7 @@ namespace Entities.Misc
 
             _globalActions.Enable();
 
-            _globalActions.Global.Escape.performed += EscapeAction;
+            _globalActions.Global.Escape.performed += _ => EscapeSequence();
             _globalActions.Global.ToggleSimulation.performed += ToggleSimulation;
             _globalActions.Global.ChangeSimulationSpeed.performed += ctx => ChangeSimulationSpeed(ctx.ReadValue<float>());
 
@@ -109,10 +112,24 @@ namespace Entities.Misc
             _inputActions.FreeRoam.Sprint.canceled += _ => sprinting = false;
         }
 
-        private void EscapeAction(InputAction.CallbackContext obj)
+        private void EscapeSequence()
         {
-            // Open/close escape panel
-
+            GlobalManager.Instance.escapeUI.SetActive(!GlobalManager.Instance.escapeUI.activeSelf);
+            if (GlobalManager.Instance.escapeUI.activeSelf)
+            {
+                _inputActions.Disable();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                _inputActions.Enable();
+                if (_cameraType == CameraType.FreeRoam || _cameraType == CameraType.ThirdPerson)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+            }
         }
 
         private void ChangeSimulationSpeed(float value) => SettingsValues.Instance.simulationSpeed = Time.timeScale = Mathf.Clamp(Time.timeScale + value * 0.1f, SettingsValues.Instance.minSimulationSpeed, SettingsValues.Instance.maxSimulationSpeed);
@@ -196,24 +213,27 @@ namespace Entities.Misc
                     freeRoamCamera.transform.position = thirdPersonCamera.transform.position;
                     freeRoamCamera.transform.rotation = thirdPersonCamera.transform.rotation;
                     
+                    _pitch = freeRoamCamera.transform.rotation.eulerAngles.x;
+                    _yaw = freeRoamCamera.transform.rotation.eulerAngles.y;
+                    
                     _inputActions.TopDownCamera.Disable();
                     _inputActions.ThirdPerson.Disable();
                     _inputActions.FreeRoam.Enable();
                     break;
             }
         }
-        
 
         private void RotateCamera() // needed help from chatgpt to implement pitch and yaw clamping
         {
             float sensitivity = InputValues.Instance.GetCameraSensitivity();
+            float deltaTime = Time.unscaledDeltaTime;
 
-            var _yaw = _rotationMomentum.x * Time.unscaledDeltaTime * sensitivity;
-            var _pitch = _rotationMomentum.y * Time.unscaledDeltaTime * sensitivity;
+            _yaw += _rotationMomentum.x * deltaTime * sensitivity;
+            _pitch -= _rotationMomentum.y * deltaTime * sensitivity;
 
             _pitch = Mathf.Clamp(_pitch, -90f, 90f);
 
-            freeRoamCamera.transform.rotation = Quaternion.Euler(freeRoamCamera.transform.eulerAngles.x - _pitch, freeRoamCamera.transform.eulerAngles.y + _yaw, 0f);
+            freeRoamCamera.transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
         }
 
         private void SprintSpeedBoostChange(float delta)
@@ -275,6 +295,7 @@ namespace Entities.Misc
                     
                     thirdCameraDelay = Time.realtimeSinceStartup;
                     SwitchCamera(CameraType.ThirdPerson);
+                    _entityIndex = (uint)entity.transform.GetSiblingIndex();
                 }
             }
         }
